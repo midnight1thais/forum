@@ -1,6 +1,9 @@
+import TelaLogin from "./pages/login/TelaLogin";
+
 function App() {
   return (
     <>
+      <TelaLogin/>
     </>
   );
 }
