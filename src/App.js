@@ -1,6 +1,9 @@
+import PostScreen from "./page/PostScreen/PostScreen";
+
 function App() {
   return (
     <>
+      <PostScreen/>
     </>
   );
 }
