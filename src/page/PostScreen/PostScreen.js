@@ -1,11 +1,17 @@
 import PostsCard from "../../components/PostsCard/PostsCard"
-// import PostHeader from "../../components/PostHeader/PostHeader"
+import PostsMenu from "../../components/PostsMenu/PostsMenu"
+import PostHeader from "../../components/PostHeader/PostHeader"
+
 
 function PostScreen() {
     return(
         <>
-            {/* <PostHeader/> */}
-            <PostsCard/>
+            <PostHeader/>
+          
+            <PostsMenu />
+         
+            <PostsCard />
+            
         </>
     )
 }
