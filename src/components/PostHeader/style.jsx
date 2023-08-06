@@ -27,7 +27,7 @@ export const ImgProfile = styled.img`
 export const ImgLogo = styled.img`
     margin-top: 0.5vh;
     width: 8vw;
-    height: 7vh;
+    height: 6vh;
     margin-right: 10vw;
 
 `
