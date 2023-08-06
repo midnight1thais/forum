@@ -1,7 +1,7 @@
 import { DivImagemHello, ImgHello, MainLogin, DivForm, DivContentForm, LabelPassword, SubTitleContainer, TitleContainer, ButtonLogin, Form01, LabelContainer, DivDontHaveAccount, ButtonCreateAccount} from './styles'
 import ImagemLogin from '../../assets/ImagemLogin.png'
 import LoginHeader from '../../components/LoginHeader/LoginHeader'
-import Input from '../../components/Input/Input'
+import InputLogin from '../../components/InputLogin/InputLogin'
 
 
 function LoginScreen() {
@@ -14,9 +14,9 @@ function LoginScreen() {
                     <SubTitleContainer>Acesse sua conta aqui para visualizar os assuntos mais falados sobre trabalho</SubTitleContainer>
                     <Form01> 
                         <LabelContainer>Nome</LabelContainer>
-                        <Input/>
+                        <InputLogin/>
                         <LabelPassword>Senha</LabelPassword>
-                        <Input/>
+                        <InputLogin/>
                         <ButtonLogin type="submit" value="Entrar"/>
                     </Form01>
                     <DivDontHaveAccount>

@@ -1,9 +1,9 @@
 import { InputContainer } from "./styles"
 
-function Input() {
+function InputLogin() {
     return(
         <InputContainer/>
     )
 }
 
-export default Input
+export default InputLogin
