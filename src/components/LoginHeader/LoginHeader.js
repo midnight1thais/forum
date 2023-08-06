@@ -1,12 +1,12 @@
 import ImagemLogo from '../../assets/ImagemLogo.svg'
-import { HeaderLoginContainer, HeaderLoginImg } from './styles'
+import { ButtonLoginHeader, HeaderLoginContainer, HeaderLoginImg } from './styles'
 
 function LoginHeader(){
     return(
-        <HeaderLoginContainer>
-            
-            <HeaderLoginImg src={ImagemLogo} alt='imagem da logo do fórum'/>
-
+        <HeaderLoginContainer> 
+            <ButtonLoginHeader>
+                <HeaderLoginImg src={ImagemLogo} alt='imagem da logo do fórum'/>
+            </ButtonLoginHeader>
         </HeaderLoginContainer>
     )
 }
