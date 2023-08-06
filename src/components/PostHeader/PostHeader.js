@@ -15,17 +15,17 @@ function PostHeader(){
         <Header>
 
             <LinkA href='#'>
-                <ImgLogo src={logo} />
+                <ImgLogo src={logo} alt='Logo'/>
             </LinkA>
 
             <InputContainer>
-                <a href='#'><ImgLupa src={lupa}/></a>
+                <a href='#'><ImgLupa src={lupa} alt='Ícone de pesquisa'/></a>
                 <Input className='search' placeholder='Clique para pesquisar'/>
             </InputContainer>
 
            
             <LinkA href='#'>
-                <ImgProfile src={profile}/>
+                <ImgProfile src={profile} alt='Foto de perfil'/>
             </LinkA>
 
         </Header>

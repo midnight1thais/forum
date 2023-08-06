@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 
 export const CardContainer = styled.div`
-    width: 55vw;
+    width: 70vw;
     height: 30vh;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -16,12 +16,14 @@ export const CardContainer = styled.div`
 `
 
 export const ImgCard = styled.img`
+    grid-area: "ImgCard";
     height: 30vh;
 `
 
 export const ContentCard = styled.div`
+    grid-area: "ContentCard";
     display: grid;
-    grid-template-columns: 42.4vw;
+    grid-template-columns: 57vw;
     grid-template-rows: 9vh 15vh 6vh;
     grid-template-areas:"HeaderContent"
                         "Content"
@@ -32,6 +34,7 @@ export const ContentCard = styled.div`
 `
 
 export const HeaderContent =  styled.div`
+    grid-area: "HeaderContent";
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,6 +45,7 @@ export const HeaderContent =  styled.div`
 `
 
 export const Content = styled.div`
+    grid-area: "Content";
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,6 +55,7 @@ export const Content = styled.div`
 `
 
 export const FooterContent = styled.div`
+    grid-area: "FooterContent";
     display: flex;
     flex-direction: row;
     align-items: center;
