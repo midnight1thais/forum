@@ -1,9 +1,11 @@
-import TelaLogin from "./pages/login/TelaLogin";
+import StyledGlobal from "./StyledGlobal";
+import LoginScreen from "./page/LoginScreen/LoginScreen";
 
 function App() {
   return (
     <>
-      <TelaLogin/>
+      <StyledGlobal/>
+      <LoginScreen/>
     </>
   );
 }
