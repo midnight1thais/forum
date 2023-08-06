@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../assets/Search.svg'
+import logo from '../../assets/LogoForum.svg'
 import lupa from '../../assets/searchnormal.svg'
 import profile from '../../assets/profile.svg'
 
@@ -14,17 +14,17 @@ function PostHeader(){
         <>
         <Header>
 
-            <LinkA>
+            <LinkA href='#'>
                 <ImgLogo src={logo} />
             </LinkA>
 
             <InputContainer>
-                <a><ImgLupa src={lupa}/></a>
+                <a href='#'><ImgLupa src={lupa}/></a>
                 <Input className='search' placeholder='Clique para pesquisar'/>
             </InputContainer>
 
            
-            <LinkA>
+            <LinkA href='#'>
                 <ImgProfile src={profile}/>
             </LinkA>
 
