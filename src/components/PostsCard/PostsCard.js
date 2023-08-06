@@ -2,7 +2,7 @@ import tecnology from '../../assets/tecnnology.svg'
 import userImg from '../../assets/userImg.svg'
 import menssages from '../../assets/messages.svg'
 
-import { BlueTextCard, ButtonContainer, ButtonContainer2, CardContainer, Content, ContentCard, FooterContent, HeaderContent, ImageUserHeader, ImgCard, MenssageImg, NameUserHeader, TextHeader, UserTextCard } from './style'
+import { BlueTextCard, ButtonContainer, ButtonContainer2, CardContainer, Content, ContentCard, FooterContent, HeaderContent, ImageUserHeader, ImgCard, MenssageImg, NameUserHeader, UserTextCard } from './style'
 
 function PostsCard() {
     return(
