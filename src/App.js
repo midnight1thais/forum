@@ -1,11 +1,21 @@
+
+import PostScreen from "./page/PostScreen/PostScreen";
+import StyledGlobal from "./styledGlobal";
+
 import StyledGlobal from "./StyledGlobal";
-import LoginScreen from "./page/LoginScreen/LoginScreen";
+
+
 
 function App() {
   return (
     <>
       <StyledGlobal/>
-      <LoginScreen/>
+
+      <PostScreen/>
+  
+
+     
+
     </>
   );
 }
