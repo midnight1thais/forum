@@ -1,4 +1,4 @@
-import { InputRegisterContainer } from "./styles"
+import { InputRegisterContainer } from "./style"
 
 function InputRegister() {
     return(

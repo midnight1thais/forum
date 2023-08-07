@@ -1,5 +1,5 @@
 import ImagemLogo from '../../assets/ImagemLogo.svg'
-import { ButtonLoginHeader, HeaderLoginContainer, HeaderLoginImg } from './styles'
+import { ButtonLoginHeader, HeaderLoginContainer, HeaderLoginImg } from './style'
 
 function LoginHeader(){
     return(

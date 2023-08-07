@@ -1,11 +1,18 @@
-import { LabelContainerRegister, MainRegister, Form02, DivImagemRegister, DivFormRegister, DivContentFormRegister, TitleRegister, ImgRegister, ButtonRegister } from './styles'
+import { LabelContainerRegister, MainRegister, Form02, DivImagemRegister, DivFormRegister, DivContentFormRegister, TitleRegister, ImgRegister, ButtonRegister } from './style'
 import InputRegister from "../../components/InputRegister/InputRegister"
 import LoginHeader from '../../components/LoginHeader/LoginHeader'
 
 import ImagemRegister from '../../assets/ImagemRegister.png'
+import { useNavigate } from 'react-router'
 
 
 function RegisterScreen() {
+
+    const navigate = useNavigate()
+
+    function goToHomePage() {
+        navigate("/home")
+    }
     return (
         <MainRegister>
             <DivFormRegister>
@@ -23,7 +30,7 @@ function RegisterScreen() {
                         <InputRegister/>
                         <LabelContainerRegister>Confirmar senha</LabelContainerRegister>
                         <InputRegister/>
-                        <ButtonRegister type="submit" value="Entrar"/>
+                        <ButtonRegister onClick={goToHomePage} type="submit" value="Entrar"/>
                     </Form02>
                 </DivContentFormRegister>
             </DivFormRegister>

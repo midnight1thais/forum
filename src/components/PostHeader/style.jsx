@@ -8,10 +8,6 @@ export const Header = styled.header`
 
 `
 
-export const LinkA = styled.a`
-
-`
-
 export const ImgLupa = styled.img`
 
 `

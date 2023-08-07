@@ -1,40 +1,24 @@
-import React from 'react';
-
 import logo from '../../assets/LogoForum.svg'
 import lupa from '../../assets/searchnormal.svg'
 import profile from '../../assets/profile.svg'
 
-import { Header, ImgLupa, LinkA, Input, ImgLogo, ImgProfile, InputContainer} from './style';
+import { Header, ImgLupa, Input, ImgLogo, ImgProfile, InputContainer} from './style';
 
 
 function PostHeader(){
 
     return(
-
-        <>
         <Header>
-
-            <LinkA href='#'>
-                <ImgLogo src={logo} alt='Logo'/>
-            </LinkA>
+            <ImgLogo src={logo} alt='Logo'/>
 
             <InputContainer>
-                <a href='#'><ImgLupa src={lupa} alt='Ícone de pesquisa'/></a>
+                <ImgLupa src={lupa} alt='Ícone de pesquisa'/>
                 <Input className='search' placeholder='Clique para pesquisar'/>
             </InputContainer>
 
-           
-            <LinkA href='#'>
-                <ImgProfile src={profile} alt='Foto de perfil'/>
-            </LinkA>
-
+            <ImgProfile src={profile} alt='Foto de perfil'/>
         </Header>
-        </>
-
     )
-
 }
-
- 
 
 export default PostHeader

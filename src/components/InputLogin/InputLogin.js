@@ -1,4 +1,4 @@
-import { InputContainer } from "./styles"
+import { InputContainer } from "./style"
 
 function InputLogin() {
     return(
