@@ -1,6 +1,6 @@
 # Fórum Search
 
-Versão portuguesa
+<bold>Versão portuguesa<bold>
 
 O Fórum Search nasceu a partir de uma proposta apresentada no itinerário formativo 
 de técnico em informática, cujo a proposta de projeto interdisciplinar atrelado ao tema
