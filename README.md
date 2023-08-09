@@ -5,7 +5,7 @@ Versão portuguesa
 O Fórum Search nasceu a partir de uma proposta apresentada no itinerário formativo 
 de técnico em informática, cujo a proposta de projeto interdisciplinar atrelado ao tema
 "mercado de trabalho" busca confeccionar um fórum digital que possibilite seus usuários
-problematizrem e discurem assuntos referentes ao mercado de trabalho. O mesmo está sendo
+problematizarem e discurem assuntos referentes ao mercado de trabalho. O mesmo está sendo
 construído através de JavaScript com a utilização de react.
 
 Com isso, nosso projeto busca trazer um fórum intuitivo e de fácil manipulação, 
