@@ -16,7 +16,7 @@ usuários, além de uma tela da sua própira conta.
 No mmomento a aplicação ainda se encontra no processo de desenvolvimento. 
 
 Os responsáveis pela elaboração dessa aplicação são:
-Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/
+Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/ <br>
 Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/
 Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/
 Thaís Martins: https://www.instagram.com/tahtudok/
