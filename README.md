@@ -5,7 +5,7 @@ Versão portuguesa
 O Fórum Search nasceu a partir de uma proposta apresentada no itinerário formativo 
 de técnico em informática, cujo a proposta de projeto interdisciplinar atrelado ao tema
 "mercado de trabalho" busca confeccionar um fórum digital que possibilite seus usuários
-problematizarem e discurem assuntos referentes ao mercado de trabalho. O mesmo está sendo
+problematizarem e discutirem assuntos referentes ao mercado de trabalho. O mesmo está sendo
 construído através de JavaScript com a utilização de react.
 
 Com isso, nosso projeto busca trazer um fórum intuitivo e de fácil manipulação, 
@@ -13,9 +13,9 @@ principalmente para atender um amplo e diverso público. Possuindo diversas tela
 incluindo: telas de login e cadastro, tela principal, com as diversas postagens dos 
 usuários, além de uma tela da sua própira conta.
 
-No mmomento a aplicação ainda se encontra no processo de desenvolvimento. 
+No momento a aplicação ainda se encontra no processo de desenvolvimento. 
 
-Os responsáveis pela elaboração dessa aplicação são:
+Os responsáveis pela elaboração dessa aplicação são: <br>
 Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/ <br>
 Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/ <br>
 Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/ <br>
@@ -36,7 +36,7 @@ users, in addition to a screen of your own account.
 
 At the moment the application is still in the development process.
 
-Those responsible for developing this application are:
+Those responsible for developing this application are: <br>
 Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/ <br>
 Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/ <br>
 Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/ <br>
