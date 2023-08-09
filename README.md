@@ -17,9 +17,9 @@ No mmomento a aplicação ainda se encontra no processo de desenvolvimento.
 
 Os responsáveis pela elaboração dessa aplicação são:
 Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/ <br>
-Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/
-Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/
-Thaís Martins: https://www.instagram.com/tahtudok/
+Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/ <br>
+Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/ <br>
+Thaís Martins: https://www.instagram.com/tahtudok/ <br>
 
 English version
 
@@ -37,7 +37,7 @@ users, in addition to a screen of your own account.
 At the moment the application is still in the development process.
 
 Those responsible for developing this application are:
-Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/
-Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/
-Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/
-Thaís Martins: https://www.instagram.com/tahtudok/
+Amanda Moraes Benites: https://www.instagram.com/amanda_mbenites/ <br>
+Arthur Lehnen Manéa: https://www.instagram.com/arthur_lehnen/ <br>
+Beatriz Fialho Strapazzon: https://www.instagram.com/biafialho27/ <br>
+Thaís Martins: https://www.instagram.com/tahtudok/ <br>
