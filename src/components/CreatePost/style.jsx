@@ -1,7 +1,9 @@
 import styled from "styled-components" ;
 
+import galeryImport from "../../assets/gallery-import.svg"
+
 export const MainCreate = styled.div`
-    background-color: darkgreen;
+    background-color: transparent;
     display: grid;
     width: 60vw;
     height: 90vh;
@@ -16,51 +18,82 @@ export const DivForm = styled.div`
 `
 
 export const Form01 = styled.form`
-    width: 40vw;
-    height: 40vh;
+    width: 60vw;
+    height: 80vh;
+    background-color: transparent;
+
+    display: grid;
+    grid-template-columns: 25vw 35vw;
+    grid-template-rows: 15vh 50vh 15vh;
+    grid-template-areas:"InputTitle InputTitle"
+                        "ImgInput ContentInput"
+                        "ButtonsArea ButtonsArea";
+    font-family: 'Josefin Sans', sans-serif;
+`
+
+export const InputTitle = styled.div`
+    grid-area: InputTitle;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    justify-content: center;
+    gap: 0.5vh;
+    padding-left: 2vw;
+    background-color: purple;
+`
+export const ImgInput = styled.div`
+    grid-area: ImgInput;
+    background-color: transparent;
+`
+export const ContentInput = styled.div`
+    grid-area: ContentInput;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
+    padding-left: 2vw;
+    background-color: gray;
+`
+export const ButtonsArea = styled.div`
+    grid-area: ButtonsArea;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    background-color: yellow;
 `
 
 export const LabelImagem = styled.label`
-    margin-top: 3vh;
-    margin-left: 5vw;
     color: #00166A;
 `
 
 export const LabelConteudo = styled.label`
-    margin-top: 3vh;
-    margin-left: 5vw;
+
     color: #00166A;
 `
 
 export const LabelContainer = styled.label`
     color: #00166A;
-    margin-left: 5vw;
-    background-color: red;
 `
 
 export const TitleContainer = styled.h1`
     display: flex;
-    flex-direction: column;
-    width: 40vw;
+    flex-direction: row;
+    align-items: center;
+    width: 60vw;
     height: 10vh;
-    margin-top: 3vw;
-    color: #000414;
+    padding-left: 3vw;
 `
 export const ButtonCancel = styled.input`
-    color: white;
+    color: #00166A;
     font-size: large;
 
-    background-color: #00166A;
-    border: none;
-    border-radius: 8px;
+    background: none;
+    border: 1.5px #00166A solid;
+    border-radius: 100px;
 
-    width: 25vw;
+    width: 20vw;
     height: 8vh;
-    margin-top: 5vh;
-    margin-left: 5vw;
 `
 export const ButtonSave = styled.input`
     color: white;
@@ -68,22 +101,18 @@ export const ButtonSave = styled.input`
 
     background-color: #00166A;
     border: none;
-    border-radius: 8px;
+    border-radius: 100px;
 
-    width: 25vw;
+    width: 20vw;
     height: 8vh;
-    margin-top: 5vh;
 `
 
 export const InputPost = styled.input`
     background: none;
     border: 1px #00166A solid;
     border-radius: 8px;
-    height: 100vh;
-    width: 40vw;
-    margin-left: 2vw;
-    margin-top: 5vh;
-    background-color: red;
+    height: 8vh;
+    width: 55vw;
 
     &:focus {
         outline: 0;
@@ -92,13 +121,17 @@ export const InputPost = styled.input`
 `
 
 export const InputPost01 = styled.input`
-    background: none;
     border: 1px #00166A solid;
+    margin-left: 2vh;
     border-radius: 8px;
-    height: 7vh;
-    width: 20vw;
-    margin-left: 2vw;
-    margin-top: 5vh;
+    height: 47.2vh;
+    width: 23vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
+    background-repeat: no-repeat;
+    background-color: transparent;
 
     &:focus {
         outline: 0;
@@ -110,10 +143,8 @@ export const InputPost02 = styled.input`
     background: none;
     border: 1px #00166A solid;
     border-radius: 8px;
-    height: 7vh;
-    width: 20vw;
-    margin-left: 2vw;
-    margin-top: 5vh;
+    height: 50vh;
+    width: 30vw;
 
     &:focus {
         outline: 0;
