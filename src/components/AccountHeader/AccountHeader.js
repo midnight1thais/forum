@@ -1,11 +1,11 @@
 import ImagemLogo from '../../assets/ImagemLogo.svg'
-import { Container, HeaderLoginImg } from './style'
+import { ContainerHeader, HeaderLoginImg } from './style'
 
 function AccountHeader(){
     return(
-        <Container>
+        <ContainerHeader>
             <HeaderLoginImg src={ImagemLogo} alt='imagem da logo do fórum'/>
-        </Container>
+        </ContainerHeader>
     )
 }
 
