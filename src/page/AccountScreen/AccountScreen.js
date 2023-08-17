@@ -1,8 +1,9 @@
+import { Container, ContentWrapper,} from './style'
+
 import AccountHeader from "../../components/AccountHeader/AccountHeader"
 import PostsMenu from "../../components/PostsMenu/PostsMenu"
-import AccountProfile from "../../components/AccountProfile/AccountProfile"
-
-import { Container, ContentWrapper,} from './style'
+import AccountProfileHeader from "../../components/AccountProfileHeader/AccountProfile"
+import AccountMain from "../../components/AccountMain/AccountMain"
 
 function AccountScreen(){
     return(
@@ -11,7 +12,8 @@ function AccountScreen(){
         <Container>
             <ContentWrapper>
                     <PostsMenu/>
-                    <AccountProfile />
+                    <AccountProfileHeader/>
+                    <AccountMain/>
             </ContentWrapper>
         </Container>
             </>

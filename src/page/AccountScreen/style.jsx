@@ -10,5 +10,6 @@ export const Container = styled.body`
 
 export const ContentWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   background-color: #e61c9f;
 `;
