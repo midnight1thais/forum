@@ -6,6 +6,7 @@ export const ContainerHeader = styled.header`
     border-bottom: 2px solid #DEDEDE;
 `
 
-export const HeaderLoginImg =styled.img`
-
+export const HeaderLoginImg  = styled.img`
+    width: 10%;
+    height: 130%;
 `
