@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Main = styled.main`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 `
 
 export const ContainerInput = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 2vh;
 `
 
 export const Label = styled.label`
@@ -16,7 +17,7 @@ export const Label = styled.label`
 
     color: #00166A;
     font-family: 'Josefin Sans';
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -25,11 +26,8 @@ export const Input = styled.input`
     width: 30vw;
     height: 3vh;
 
+    border: none;
     background-color: transparent;
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-color: #919191;
     outline: none;
 
     &::placeholder{
@@ -41,7 +39,25 @@ export const Input = styled.input`
         line-height: normal;
     }
 `
-export const ImgIcon = styled.img`
-    width: 1vw;
-    height: 1vh;
+
+export const ContainerTopics = styled.div`
+    background-color: transparent;
+    
+`
+
+export const BorderTopics = styled.div`
+    width: 20vw;
+    height: 20vh;
+    border-style: solid; // Estiliza seu estilo
+    border-color:  blue; // Estiliza sua cor
+    border-radius: 20px;
+`
+
+export const TitleTopics = styled.p`
+    color: #00166A;
+    font-family: 'Josefin Sans';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 `

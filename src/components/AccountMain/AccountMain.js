@@ -1,5 +1,4 @@
-import { ContainerInput, ImgIcon, Input, Label, Main } from "./style"
-import UserEdit from '../../assets/UserEdit3.png'
+import { ContainerInput, Input, Label, Main, ContainerTopics, BorderTopics, TitleTopics} from "./style"
 
 function AccountMain(){
     return(
@@ -8,8 +7,22 @@ function AccountMain(){
                 <Label> Nome:
                     <Input placeholder="Sheyla Cardoso"/>
                 </Label>
-                <ImgIcon src={UserEdit}/>
+                <Label> Email:
+                    <Input placeholder="sheyla@gmail.com"/>
+                </Label>
+                <Label> Profissão:
+                    <Input placeholder="Astronauta"/>
+                </Label>
+                <Label> Idade:
+                    <Input placeholder="23"/>
+                </Label>
             </ContainerInput>
+            <ContainerTopics>
+                <TitleTopics> Assuntos de Interesse</TitleTopics>
+                <BorderTopics>
+
+                </BorderTopics>
+            </ContainerTopics>
         </Main>
     )
 }
