@@ -5,13 +5,13 @@ export const Container = styled.main`
     height: 100%;
     width: 60vw;
     background-color: red;
+    margin-bottom: 2vh;
 `
 
 export const ImgProfile = styled.img`
     margin-top: 0.5vh;
     width: 16vw;
     height: 16vh;
-    margin-right: 0.5vw;
 
 `
 
@@ -21,11 +21,16 @@ export const Header = styled.div`
     align-items: center;
     width: 60%;
     height: 30%;
-    gap: 1.5vw;
+    gap: 1vw;
     
 
 `
 
 export const Title = styled.h1`
-
+    color: #000000;
+    font-family: 'Josefin Sans';
+    font-size: 200%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 `
