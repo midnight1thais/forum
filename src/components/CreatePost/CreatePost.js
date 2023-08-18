@@ -16,7 +16,9 @@ function CreatePost() {
                     </InputTitle>
                     <ImgInput>
                         <LabelImagem> Imagem: </LabelImagem>
-                        <InputPost01 src={galeryImport}/>
+                        <InputPost01>
+                            <input type="image" src={galeryImport}/>
+                        </InputPost01>
                     </ImgInput>
                     <ContentInput>
                         <LabelConteudo> Conteúdo: </LabelConteudo>

@@ -38,11 +38,14 @@ export const InputTitle = styled.div`
     justify-content: center;
     gap: 0.5vh;
     padding-left: 2vw;
-    background-color: purple;
 `
 export const ImgInput = styled.div`
     grid-area: ImgInput;
-    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
+    padding-left: 2vw;
 `
 export const ContentInput = styled.div`
     grid-area: ContentInput;
@@ -51,7 +54,6 @@ export const ContentInput = styled.div`
     justify-content: center;
     gap: 0.5vh;
     padding-left: 2vw;
-    background-color: gray;
 `
 export const ButtonsArea = styled.div`
     grid-area: ButtonsArea;
@@ -60,15 +62,13 @@ export const ButtonsArea = styled.div`
     justify-content: center;
     align-items: center;
     gap: 5vh;
-    background-color: yellow;
 `
 
-export const LabelImagem = styled.label`
+export const LabelImagem = styled.p`
     color: #00166A;
 `
 
 export const LabelConteudo = styled.label`
-
     color: #00166A;
 `
 
@@ -120,17 +120,15 @@ export const InputPost = styled.input`
     }
 `
 
-export const InputPost01 = styled.input`
+export const InputPost01 = styled.div`
     border: 1px #00166A solid;
-    margin-left: 2vh;
     border-radius: 8px;
     height: 47.2vh;
     width: 23vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    gap: 0.5vh;
-    background-repeat: no-repeat;
     background-color: transparent;
 
     &:focus {
@@ -139,12 +137,13 @@ export const InputPost01 = styled.input`
     }
 `
 
-export const InputPost02 = styled.input`
+export const InputPost02 = styled.textarea`
     background: none;
     border: 1px #00166A solid;
     border-radius: 8px;
     height: 50vh;
     width: 30vw;
+    resize: none;
 
     &:focus {
         outline: 0;
