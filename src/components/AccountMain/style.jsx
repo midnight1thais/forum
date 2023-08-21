@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const Main = styled.main`
     display: flex;
     flex-direction: row;
+    
 `
 
 export const ContainerInput = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: 4vh;
 `
 
 export const Label = styled.label`
@@ -42,14 +43,15 @@ export const Input = styled.input`
 
 export const ContainerTopics = styled.div`
     background-color: transparent;
+
     
 `
 
 export const BorderTopics = styled.div`
     width: 20vw;
-    height: 20vh;
-    border-style: solid; // Estiliza seu estilo
-    border-color:  blue; // Estiliza sua cor
+    height: 25vh;
+    border-style: solid; 
+    border-color:  blue; 
     border-radius: 20px;
 `
 
