@@ -5,7 +5,8 @@ import StyledGlobal from "./StyledGlobal";
 // import LoginScreen from "./page/LoginScreen/LoginScreen";
 // import RegisterScreen from "./page/RegisterScreen/RegisterScreen";
 // import PostScreen from "./page/PostScreen/PostScreen";
-import AccountScreen from "./page/AccountScreen/AccountScreen";
+// import AccountScreen from "./page/AccountScreen/AccountScreen";
+import AccountEditScreen from "./page/AccountEditScreen/AccountEditScreen";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/home" Component={PostScreen}/>
         </Routes>
       </BrowserRouter> */}
-      <AccountScreen/>
+      <AccountEditScreen/>
     </>
   );
 }
