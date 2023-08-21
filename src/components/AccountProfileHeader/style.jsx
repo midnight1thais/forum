@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
+export const Container = styled.header`
     display: flex;
     height: 100%;
     width: 60vw;
-    background-color: red;
     margin-bottom: 2vh;
 `
 
 export const ImgProfile = styled.img`
     margin-top: 0.5vh;
-    width: 16vw;
-    height: 16vh;
+    height: 20vh;
 
 `
 
