@@ -54,4 +54,7 @@ export const ContentOpenedPost = styled.div`
 
 export const CommentsOpenedPost = styled.div`
     background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
 `
