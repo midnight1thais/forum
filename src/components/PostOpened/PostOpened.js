@@ -18,7 +18,10 @@ function PostOpened() {
                     <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias distinctio dolorem  Odio alias distinctio dolorem  Odio alias distinctio dolorem  Odio alias distinctio dolorem aaaaaa</h2>
                 </TitlePostContainer>
                 <TagsPostContainer>
-                    <Tag>Sample Tag</Tag>
+                    <Tag
+                    bg={"#EEF2FE"}
+                    padding={6}
+                    borderRadius={20}>Sample Tag</Tag>
                 </TagsPostContainer>
             </HeaderOpenedPost>
             <ContentOpenedPost>

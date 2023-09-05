@@ -6,6 +6,7 @@ import LoginScreen from "./page/LoginScreen/LoginScreen";
 import RegisterScreen from "./page/RegisterScreen/RegisterScreen";
 import PostScreen from "./page/PostScreen/PostScreen";
 import PostOpened from "./components/PostOpened/PostOpened";
+import PostOpenedScreen from "./page/PostOpenedScreen/PostOpenedScreen";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/home" Component={PostScreen}/>
         </Routes>
       </BrowserRouter> */}
-      <PostOpened/>
+      <PostOpenedScreen/>
     </>
   );
 }
