@@ -6,19 +6,14 @@ import LoginScreen from "./page/LoginScreen/LoginScreen";
 import RegisterScreen from "./page/RegisterScreen/RegisterScreen";
 import PostScreen from "./page/PostScreen/PostScreen";
 import CreatePost from "./components/CreatePost/CreatePost";
+import Rotas from "./rotas/Rotas";
 
 function App() {
   return (
     <>
       <StyledGlobal/>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" Component={LoginScreen}/>
-          <Route path="/register" Component={RegisterScreen}/>
-          <Route path="/home" Component={PostScreen}/>
-        </Routes>
-      </BrowserRouter> */}
-      <CreatePost/>
+      <Rotas/>
+     
     </>
   );
 }
