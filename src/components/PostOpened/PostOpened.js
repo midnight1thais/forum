@@ -1,6 +1,7 @@
-import { CommentsOpenedPost, ContentOpenedPost, HeaderOpenedPost, ImgProfilePost, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
+import { ButtonAddComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments, HeaderOpenedPost, ImgProfilePost, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
 
 import profileTest from "../../assets/profile.svg"
+import addCircle from "../../assets/add-circle.svg"
 
 import {
     Tag
@@ -31,15 +32,16 @@ function PostOpened() {
                 </p>
             </ContentOpenedPost>
             <CommentsOpenedPost>
-                <div>
+                <HeaderComments>
                     <div>
                         <h3>Comentários</h3>
                     </div>
                     <div>
-                        <button>a</button>
+                        <ButtonAddComment><img src={addCircle} alt="Botão de adicionar comentário"/></ButtonAddComment>
                     </div>
-                </div>
+                </HeaderComments>
                 <div>
+                    <Comments/>
                     <Comments/>
                 </div>
             </CommentsOpenedPost>

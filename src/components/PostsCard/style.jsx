@@ -91,6 +91,8 @@ export const ButtonContainer = styled.button`
     color: #00166A;
     font-weight: bold;
     font-size: x-small;
+    
+    cursor: pointer;
 `
 
 export const ButtonContainer2 = styled(ButtonContainer)`
@@ -111,4 +113,8 @@ export const UserTextCard = styled.p`
 
 export const MenssageImg = styled.img`
     width: 1.5vw;
+`
+
+export const TitleCard = styled.h2`
+    font-size: x-large;
 `

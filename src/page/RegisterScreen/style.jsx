@@ -62,4 +62,6 @@ export const ButtonRegister = styled.input`
     width: 40vw;
     height: 7vh;
     margin-top: 3vh;
+
+    cursor: pointer;
 `

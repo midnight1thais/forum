@@ -71,6 +71,8 @@ export const ButtonLogin = styled.input`
     width: 40vw;
     height: 8vh;
     margin-top: 5vh;
+
+    cursor: pointer;
 `
 
 export const DivDontHaveAccount = styled.div `
@@ -89,4 +91,6 @@ export const ButtonCreateAccount = styled.button`
 
     color: #00166A;
     font-weight: bolder;
+
+    cursor: pointer;
 `

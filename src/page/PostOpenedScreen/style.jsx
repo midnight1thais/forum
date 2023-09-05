@@ -3,7 +3,7 @@ import { MainPostContainer, MenuContainerScreen, PostsContainerScreen } from "..
 
 
 export const MainPostOpenedScreen = styled(MainPostContainer)`
-
+    box-shadow: none;
 `
 
 export const MenuOpenedScreen = styled(MenuContainerScreen)`

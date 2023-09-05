@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import { ButtonContainer } from "../PostsCard/style";
 
 export const OpenedPostContainer = styled.div`
-    width: 80vw;
+    width: 75vw;
     font-family: 'Josefin Sans', sans-serif;
 
 `
 
 export const HeaderOpenedPost = styled.div`
     grid-area: HeaderOpenedPost;
-    width: 80vw;
+    width: 75vw;
     height: 27vh;
     display: grid;
-    grid-template-columns: 80vw;
+    grid-template-columns: 75vw;
     grid-template-rows: 10vh 12vh 5vh;
     grid-template-areas:"ProfileNameContainer"
                         "TitlePostContainer"
@@ -53,8 +54,21 @@ export const ContentOpenedPost = styled.div`
 `
 
 export const CommentsOpenedPost = styled.div`
-    background-color: yellow;
     display: flex;
     flex-direction: column;
     padding-top: 2vh;
+`
+
+export const HeaderComments = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 8vh;
+    padding-right: 3vw;
+`
+
+export const ButtonAddComment = styled(ButtonContainer)`
+    
 `
