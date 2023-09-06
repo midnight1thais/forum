@@ -13,14 +13,8 @@ function App() {
   return (
     <>
       <StyledGlobal/>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" Component={LoginScreen}/>
-          <Route path="/register" Component={RegisterScreen}/>
-          <Route path="/home" Component={PostScreen}/>
-        </Routes>
-      </BrowserRouter> */}
-      <AccountEditScreen/>
+      <Rotas/>
+    
     </>
   );
 }
