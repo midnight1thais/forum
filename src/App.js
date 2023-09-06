@@ -6,7 +6,8 @@ import StyledGlobal from "./StyledGlobal";
 // import RegisterScreen from "./page/RegisterScreen/RegisterScreen";
 // import PostScreen from "./page/PostScreen/PostScreen";
 // import AccountScreen from "./page/AccountScreen/AccountScreen";
-import AccountEditScreen from "./page/AccountEditScreen/AccountEditScreen";
+// import AccountEditScreen from "./page/AccountEditScreen/AccountEditScreen";
+import Rotas from "./rotas/Rotas";
 
 
 function App() {

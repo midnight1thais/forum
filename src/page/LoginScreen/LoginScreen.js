@@ -15,8 +15,9 @@ function LoginScreen() {
 
     const navigate = useNavigate();
 
-    const goToHome = ()=>{
-        navigate('home')
+    const saveUserInfoLocalStorage = (token) => {
+        localStorage.setItem('email', email)
+        localStorage.setItem('token', token)
     }
 
     console.log(email)
@@ -34,7 +35,8 @@ function LoginScreen() {
         })
         .then(response =>{
             alert(response.data.message)
-            goToHome()
+            saveUserInfoLocalStorage(response.data.token)
+            navigate('home')
         })
         .catch(error => console.log(error))
 

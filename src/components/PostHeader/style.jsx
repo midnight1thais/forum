@@ -16,7 +16,6 @@ export const ImgProfile = styled.img`
     margin-top: 0.5vh;
     width: 8vw;
     height: 7vh;
-    margin-left: 5vw;
 
 `
 
@@ -49,3 +48,19 @@ export const InputContainer = styled.div`
     align-items: center;
     margin-left: 10px; /* Espaçamento entre a imagem e o input */
 `;
+
+
+export const DivAccountLogout = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    width: 15vw;
+`
+
+export const ButtonLogout = styled.button`
+    background: none;
+    border: none;
+    color: gray;
+    cursor: pointer;
+`
