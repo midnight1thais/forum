@@ -1,9 +1,11 @@
-import { DivImagemHello, ImgHello, MainLogin, DivForm, DivContentForm, LabelPassword, SubTitleContainer, TitleContainer, ButtonLogin, Form01, LabelContainer, DivDontHaveAccount, ButtonCreateAccount} from './style'
+import { DivImagemHello, ImgHello, MainLogin, DivForm, DivContentForm, LabelPassword, SubTitleContainer, TitleContainer, ButtonLogin, Form01, LabelContainer, DivDontHaveAccount, ButtonCreateAccount, InputContainer} from './style'
 import ImagemLogin from '../../assets/ImagemLogin.png'
 import LoginHeader from '../../components/LoginHeader/LoginHeader'
-import InputLogin from '../../components/InputLogin/InputLogin'
+
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import InputLogin from '../../components/InputLogin/InputLogin';
 
 
 function LoginScreen() {
@@ -11,17 +13,28 @@ function LoginScreen() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const navigate = useNavigate();
+
+    const goToHome = ()=>{
+        navigate('home')
+    }
+
+    console.log(email)
+    console.log(password)
+
     const handleSubmit = (e) =>{
+        e.preventDefault()
 
         const credentials = {email, password}
 
-        axios.post('http://localhost:3000/login', credentials, {
+        axios.post('http://localhost:8000/login', credentials, {
             headers:{
                 'Content-Type': 'application/json', 
             },
         })
         .then(response =>{
             alert(response.data.message)
+            goToHome()
         })
         .catch(error => console.log(error))
 
@@ -39,13 +52,13 @@ function LoginScreen() {
                     <SubTitleContainer>Acesse sua conta aqui para visualizar os assuntos mais falados sobre trabalho</SubTitleContainer>
                     <Form01 onSubmit={handleSubmit}> 
                         <LabelContainer>Email</LabelContainer>
-                        <InputLogin
+                        <InputContainer
                         type='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         />
                         <LabelPassword>Senha</LabelPassword>
-                        <InputLogin
+                        <InputContainer
                         type='password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

@@ -90,3 +90,17 @@ export const ButtonCreateAccount = styled.button`
     color: #00166A;
     font-weight: bolder;
 `
+
+
+export const InputContainer = styled.input`
+    background: none;
+    border: 1px #00166A solid;
+    border-radius: 8px;
+    height: 7vh;
+    width: 40vw;
+
+    &:focus {
+        outline: 0;
+        padding-left: 0.5vw;
+    }
+`
