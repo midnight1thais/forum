@@ -4,7 +4,7 @@ import PostHeader from "../../components/PostHeader/PostHeader"
 import { MainPostContainer, MenuContainerScreen, PostsContainerScreen } from "./style"
 
 
-function PostScreen() {
+function PostScreen(props) {
     return(
         <>
             <PostHeader/>
@@ -14,8 +14,7 @@ function PostScreen() {
                 </MenuContainerScreen>
 
                 <PostsContainerScreen>
-                    <PostsCard />
-                    <PostsCard />
+                    <PostsCard news={props.news} setNews={props.setNews}/>
                 </PostsContainerScreen>
             </MainPostContainer>
             

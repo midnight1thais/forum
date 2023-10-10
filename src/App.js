@@ -8,13 +8,16 @@ import StyledGlobal from "./StyledGlobal";
 // import AccountScreen from "./page/AccountScreen/AccountScreen";
 // import AccountEditScreen from "./page/AccountEditScreen/AccountEditScreen";
 import Rotas from "./rotas/Rotas";
+import { useState } from "react";
 
 
 function App() {
+
+  const [news, setNews] = useState([]);
   return (
     <>
       <StyledGlobal/>
-      <Rotas/>
+      <Rotas new={news} setNews={setNews}/>
     
     </>
   );
