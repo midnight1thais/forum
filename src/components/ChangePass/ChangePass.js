@@ -1,4 +1,4 @@
-import { ButtonCancel, ButtonSave, ChangeTitleContainer, DivButtons, DivChangeTitle, DivForm, FormContainer, TitleForm } from "./style"
+import { ButtonCancel, ButtonSave, ChangeTitleContainer, DivButtons, DivChangeTitle, DivForm, FormContainer, MainChange, TitleForm } from "./style"
 
 
 function ChangePass(){

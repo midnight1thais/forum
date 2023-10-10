@@ -1,11 +1,14 @@
 import styled from "styled-components" ;
 
-export const MainChage = styled.div`
+export const MainChange = styled.div`
     font-family: 'Josefin Sans', sans-serif;
     background-color: transparent;
-    background-color: red;
-    height: 40vh;
+
+    /* background-color: red; */
+
+    height: 59vh;
     width: 25vw;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +16,8 @@ export const MainChage = styled.div`
 `
 export const ChangeTitleContainer = styled.h1`
     font-size: large;
+    
+    padding-bottom: 6vh;
 `
 export const DivChangeTitle = styled.div`
     display: flex;
@@ -21,6 +26,7 @@ export const DivChangeTitle = styled.div`
     align-items: center;
 
     height: 5vh;
+    font-size: large;
 `
 export const DivForm = styled.form`
     display: flex;
@@ -28,7 +34,9 @@ export const DivForm = styled.form`
     justify-content: center;
     /* align-items: center; */
 
-    height: 25vh;
+    height: 38vh;
+    width: 22vw;
+    padding-top: 2vh;
 
     /* background-color: yellow; */
 `
@@ -36,13 +44,24 @@ export const TitleForm = styled.label`
     font-family: 'Josefin Sans', sans-serif;
     font-size: small;
     color: #00166a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+
 `
 export const FormContainer = styled.input`
-    width: 20vw;
-    height: 6vh;
-    border-radius: 9px;
+    width: 22vw;
+    height: 7vh;
+    border-radius: 6px;
     border: 1px #00166a solid;
     outline: none;
+
+    padding-top: 2vh;
+    padding-bottom: 3vh;
 `
 
 export const DivButtons = styled.div`
@@ -53,7 +72,9 @@ export const DivButtons = styled.div`
 
     gap: 2vw;
     height: 10vh;
-    padding-top: 2vh;
+    padding-top: 4vh;
+
+    /* background-color: aqua; */
 `
 export const ButtonCancel = styled.button`
     font-family: 'Josefin Sans', sans-serif;
