@@ -4,9 +4,12 @@ import LoginHeader from '../../components/LoginHeader/LoginHeader'
 
 import ImagemRegister from '../../assets/ImagemRegister.png'
 import { useNavigate } from 'react-router'
+import { useForm } from '../../hooks/useForm'
 
 
 function RegisterScreen() {
+
+    const [form, onChangeForm] = useForm({nome:'', password:'', email:''})
 
     const navigate = useNavigate()
 
@@ -21,13 +24,28 @@ function RegisterScreen() {
                     <TitleRegister> Criar conta </TitleRegister>
                     <Form02> 
                         <LabelContainerRegister>Nome de usuário</LabelContainerRegister>
-                        <InputRegister/>
+                        <InputRegister
+                            type='text'
+                            name='nome'
+                            value={form.username}
+                            onChange={onChangeForm}
+                        />
                         <LabelContainerRegister>E-mail</LabelContainerRegister>
-                        <InputRegister/>
+                        <InputRegister
+                            type='email'
+                            name='email'
+                            value={form.email}
+                            onChange={onChangeForm}
+                        />
                         <LabelContainerRegister>Idade</LabelContainerRegister>
                         <InputRegister/>
                         <LabelContainerRegister>Senha</LabelContainerRegister>
-                        <InputRegister/>
+                        <InputRegister
+                            type='password'
+                            name='password'
+                            value={form.password}
+                            onChange={onChangeForm}
+                        />
                         <LabelContainerRegister>Confirmar senha</LabelContainerRegister>
                         <InputRegister/>
                         <ButtonRegister onClick={goToHomePage} type="submit" value="Entrar"/>

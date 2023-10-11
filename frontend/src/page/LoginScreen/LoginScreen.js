@@ -6,43 +6,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import InputLogin from '../../components/InputLogin/InputLogin';
+import { useUserOperations } from '../../hooks/useUserOperations';
 
 
 function LoginScreen() {
     
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
 
-    const navigate = useNavigate();
-
-    const saveUserInfoLocalStorage = (token) => {
-        localStorage.setItem('email', email)
-        localStorage.setItem('token', token)
-    }
-
-    console.log(email)
-    console.log(password)
-
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-
-        const credentials = {email, password}
-
-        axios.post('http://localhost:8000/login', credentials, {
-            headers:{
-                'Content-Type': 'application/json', 
-            },
-        })
-        .then(response =>{
-            alert(response.data.message)
-            saveUserInfoLocalStorage(response.data.token)
-            navigate('home')
-        })
-        .catch(error => console.log(error))
-
-    }
-
-
+    const {form, onChangeForm, handleSubmit} = useUserOperations({nome:'', password:''} , 'user/login')
 
 
     return (
@@ -53,17 +25,20 @@ function LoginScreen() {
                     <TitleContainer> Entre no fórum </TitleContainer>
                     <SubTitleContainer>Acesse sua conta aqui para visualizar os assuntos mais falados sobre trabalho</SubTitleContainer>
                     <Form01 onSubmit={handleSubmit}> 
-                        <LabelContainer>Email</LabelContainer>
+                        <LabelContainer>Nome</LabelContainer>
                         <InputContainer
-                        type='email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder='Nome'
+                        type='text'
+                        name='nome'
+                        value = {form.nome}
+                        onChange={onChangeForm}
                         />
                         <LabelPassword>Senha</LabelPassword>
                         <InputContainer
                         type='password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        name='password'
+                        value={form.password}
+                        onChange={onChangeForm}
                         />
                         <ButtonLogin 
                         type="submit" 
