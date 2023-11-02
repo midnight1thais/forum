@@ -4,8 +4,6 @@ import styled from 'styled-components';
 export const MainPostContainer = styled.div`
     width: 100vw;
     height: 92vh;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
  
     display: grid;
     grid-template-columns: 20vw 80vw;
@@ -33,7 +31,7 @@ export const ButtonCreatePost = styled.button`
  
     display: flex;
     justify-content: flex-end;
-    padding-left: 95vw;
+    /* padding-left: 95vw; */
 `
 export const ImageCreate = styled.img`
     width: 10vw;
@@ -41,12 +39,20 @@ export const ImageCreate = styled.img`
 `
 
 export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Cor escura com transparência */
-  z-index: 1000; /* Certifique-se de que a sobreposição esteja acima de outros elementos */
-  display: ${(props) => (props.show ? 'block' : 'none')};
-`;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Cor escura com transparência */
+    z-index: 1000; /* Certifique-se de que a sobreposição esteja acima de outros elementos */
+    display: ${(props) => (props.show ? 'block' : 'none')};
+`
+
+export const FooterPostScreen = styled.div`
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+`

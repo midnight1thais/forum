@@ -6,29 +6,17 @@ export const CardContainer = styled.div`
     height: 30vh;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
-    display: grid;
-    grid-template-columns: 20vw 30vw;
-    grid-template-rows: 30vh;
-    grid-template-areas:"ImgCard"
-                        "ContentCard";
     font-family: 'Josefin Sans', sans-serif;
-`
-
-export const ImgCard = styled.img`
-    grid-area: "ImgCard";
-    height: 30vh;
 `
 
 export const ContentCard = styled.div`
     grid-area: "ContentCard";
     display: grid;
-    grid-template-columns: 57vw;
+    grid-template-columns: 100vw;
     grid-template-rows: 9vh 15vh 6vh;
     grid-template-areas:"HeaderContent"
                         "Content"
                         "FooterContent";
-    margin-left: -7.27vw;
 
     border-radius: 10px;
 `
@@ -60,6 +48,10 @@ export const FooterContent = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: right;
+
+    width: 70vw;
+
+    border-radius: 0px 0px 10px 10px;
 
     padding-right: 1.5vw;
 `

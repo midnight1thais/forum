@@ -28,9 +28,6 @@ function PostsCard(props) {
     // })
     return(
         <CardContainer>
-            <div>
-                <ImgCard src={tecnology} alt="Imagem do conteúdo"/>
-            </div>
             <ContentCard>
                 <HeaderContent>
                     <ButtonContainer2>
