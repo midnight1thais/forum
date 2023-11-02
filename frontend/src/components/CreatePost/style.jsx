@@ -44,21 +44,13 @@ export const Form01 = styled.form`
     grid-template-columns: 25vw 35vw;
     grid-template-rows: 15vh 50vh 15vh;
     grid-template-areas:"InputTitle InputTitle"
-                        "ImgInput ContentInput"
+                        "ContentInput ContentInput"
                         "ButtonsArea ButtonsArea";
     font-family: 'Josefin Sans', sans-serif;
 `
 
 export const InputTitle = styled.div`
     grid-area: InputTitle;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5vh;
-    padding-left: 2vw;
-`
-export const ImgInput = styled.div`
-    grid-area: ImgInput;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,10 +72,6 @@ export const ButtonsArea = styled.div`
     justify-content: center;
     align-items: center;
     gap: 5vh;
-`
-
-export const LabelImagem = styled.p`
-    color: #00166A;
 `
 
 export const LabelConteudo = styled.label`
@@ -138,29 +126,13 @@ export const InputPost = styled.input`
     }
 `
 
-export const InputPost01 = styled.div`
-    border: 1px #00166A solid;
-    border-radius: 8px;
-    height: 47.2vh;
-    width: 23vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-
-    &:focus {
-        outline: 0;
-        padding-left: 0.5vw;
-    }
-`
 
 export const InputPost02 = styled.textarea`
     background: none;
     border: 1px #00166A solid;
     border-radius: 8px;
     height: 50vh;
-    width: 30vw;
+    width: 55vw;
     resize: none;
 
     &:focus {

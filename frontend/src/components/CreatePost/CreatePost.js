@@ -1,6 +1,4 @@
-import { ButtonCancel, InputPost, InputPost02, ButtonSave, DivForm, Form01, LabelContainer, LabelConteudo, LabelImagem, MainCreate, TitleContainer, InputPost01, InputTitle, ContentInput, ButtonsArea, ImgInput, BackgrondStyle} from "./style"
- 
-import galeryImport from "../../assets/gallery-import.svg"
+import { ButtonCancel, InputPost, InputPost02, InputTitle, ButtonSave, DivForm, Form01, LabelContainer, LabelConteudo, MainCreate, TitleContainer, ContentInput, ButtonsArea, BackgrondStyle} from "./style"
  
 function CreatePost({isOpen, setOpenCreatePost}) {
  
@@ -16,12 +14,6 @@ function CreatePost({isOpen, setOpenCreatePost}) {
                                 <LabelContainer>Título: </LabelContainer>
                                 <InputPost/>
                             </InputTitle>
-                            <ImgInput>
-                                <LabelImagem> Imagem: </LabelImagem>
-                                <InputPost01>
-                                    <input type="image" src={galeryImport}/>
-                                </InputPost01>
-                            </ImgInput>
                             <ContentInput>
                                 <LabelConteudo> Conteúdo: </LabelConteudo>
                                 <InputPost02/>
