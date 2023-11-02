@@ -8,24 +8,24 @@ import axios from 'axios'
 
 function PostsCard(props) {
 
-    const pegarNoticias=()=>{
-        axios.get('http://localhost:8000/news')
-        .then(response => props.setNews(response.data))
-        .catch(error => console.error(error))
-    }
+    // const pegarNoticias=()=>{
+    //     axios.get('http://localhost:8000/news')
+    //     .then(response => props.setNews(response.data))
+    //     .catch(error => console.error(error))
+    // }
 
-    useEffect( ()=> {
-        pegarNoticias()
-    }, [])
+    // useEffect( ()=> {
+    //     pegarNoticias()
+    // }, [])
 
-    const novasNoticias = props.news.map( (item) =>{
-        return(
-            <div key={item.id}>
-                <h2>{item.titulo}</h2>
-                <p>{item.content}</p>
-            </div>
-        )
-    })
+    // const novasNoticias = props.news.map( (item) =>{
+    //     return(
+    //         <div key={item.id}>
+    //             <h2>{item.titulo}</h2>
+    //             <p>{item.content}</p>
+    //         </div>
+    //     )
+    // })
     return(
         <CardContainer>
             <div>

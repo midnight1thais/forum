@@ -60,7 +60,7 @@ export const ImgHello = styled.img`
     height: 100vh;
 `
 
-export const ButtonLogin = styled.input`
+export const ButtonLogin = styled.button`
     color: white;
     font-size: large;
 
@@ -71,6 +71,7 @@ export const ButtonLogin = styled.input`
     width: 40vw;
     height: 8vh;
     margin-top: 5vh;
+    cursor: pointer;
 `
 
 export const DivDontHaveAccount = styled.div `

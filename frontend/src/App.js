@@ -13,11 +13,10 @@ import { useState } from "react";
 
 function App() {
 
-  const [news, setNews] = useState([]);
   return (
     <>
       <StyledGlobal/>
-      <Rotas new={news} setNews={setNews}/>
+      <Rotas />
     
     </>
   );

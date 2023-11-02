@@ -1,54 +1,89 @@
-import { LabelContainerRegister, MainRegister, Form02, DivImagemRegister, DivFormRegister, DivContentFormRegister, TitleRegister, ImgRegister, ButtonRegister } from './style'
-import InputRegister from "../../components/InputRegister/InputRegister"
+import { LabelContainerRegister, MainRegister, Form02, DivImagemRegister, DivFormRegister, DivContentFormRegister, TitleRegister, ImgRegister, ButtonRegister, InputRegisterContainer } from './style'
 import LoginHeader from '../../components/LoginHeader/LoginHeader'
 
 import ImagemRegister from '../../assets/ImagemRegister.png'
 import { useNavigate } from 'react-router'
-import { useForm } from '../../hooks/useForm'
+import { useState } from 'react'
+import { url } from '../../constants/url'
 
 
 function RegisterScreen() {
 
-    const [form, onChangeForm] = useForm({nome:'', password:'', email:''})
-
     const navigate = useNavigate()
 
-    function goToHomePage() {
-        navigate("/home")
-    }
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState(""); 
+
+    const isButtonDisabled = password !== confirmPassword;
+
+    const registerUser = async (e) => {
+        e.preventDefault();
+        const data = {
+          name,
+          email,
+          password,
+        };
+        try {
+          await url.post("/user/create", data);
+          console.log("Usuário criado com sucesso!");
+    
+          navigate('/')
+        } catch (error) {
+          console.error("Erro ao fazer login:", error);
+          setError("Credenciais inválidas. Verifique seu email e senha.");
+        }
+      };
+  
+
+
     return (
         <MainRegister>
             <DivFormRegister>
                 <LoginHeader/>
                 <DivContentFormRegister>
                     <TitleRegister> Criar conta </TitleRegister>
-                    <Form02> 
+                    <Form02 onSubmit={registerUser}> 
                         <LabelContainerRegister>Nome de usuário</LabelContainerRegister>
-                        <InputRegister
+                        <InputRegisterContainer
                             type='text'
-                            name='nome'
-                            value={form.username}
-                            onChange={onChangeForm}
+                            value={name} 
+                            onChange={(e) => setName(e.target.value)}
+                            required
                         />
                         <LabelContainerRegister>E-mail</LabelContainerRegister>
-                        <InputRegister
+                        <InputRegisterContainer
                             type='email'
-                            name='email'
-                            value={form.email}
-                            onChange={onChangeForm}
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
-                        <LabelContainerRegister>Idade</LabelContainerRegister>
-                        <InputRegister/>
                         <LabelContainerRegister>Senha</LabelContainerRegister>
-                        <InputRegister
+                        <InputRegisterContainer
                             type='password'
-                            name='password'
-                            value={form.password}
-                            onChange={onChangeForm}
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                         <LabelContainerRegister>Confirmar senha</LabelContainerRegister>
-                        <InputRegister/>
-                        <ButtonRegister onClick={goToHomePage} type="submit" value="Entrar"/>
+                        <InputRegisterContainer
+                            type='password'
+                            value={confirmPassword} 
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                        {error ?
+                            <div>
+                                <label>{error}</label>
+                                <ButtonRegister type="submit" value="Cadastrar" disabled={isButtonDisabled}/>
+                            </div>
+                            :
+                            <div>
+                                <ButtonRegister type="submit" value="Cadastrar" />
+                            </div>
+                        }
                     </Form02>
                 </DivContentFormRegister>
             </DivFormRegister>

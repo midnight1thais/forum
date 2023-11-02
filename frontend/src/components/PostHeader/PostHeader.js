@@ -4,21 +4,12 @@ import profile from '../../assets/profile.svg'
 
 import { Header, ImgLupa, Input, ImgLogo, ImgProfile, InputContainer, DivAccountLogout, ButtonLogout} from './style';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-
 
 function PostHeader(){
     const navigate = useNavigate()
 
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        if(!token) {
-            navigate('/')
-        }
-    }, [navigate])
-
     const handleLogout = () => {
-        localStorage.removeItem('email')
+        localStorage.removeItem('name')
         localStorage.removeItem('token')
         navigate('/')
     }

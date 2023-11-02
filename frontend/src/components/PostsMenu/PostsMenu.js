@@ -6,28 +6,29 @@ import React, { useState } from 'react';
 import { Icon, MenuContainer, MenuItem, MenuLine, MenuText } from './style';
 
 function Menu(){
-  const [selectedItem, setSelectedItem] = useState(0);
+  // const [selectedItem, setSelectedItem] = useState(0);
 
-  const handleItemClick = index => {
-    setSelectedItem(index);
-  };
+  // const handleItemClick = index => {
+  //   setSelectedItem(index);
+  // };
+
 
   return (
     <MenuContainer>
-      <MenuItem href="#" isSelected={selectedItem === 0} onClick={() => handleItemClick(0)}>
+      <MenuItem href="#">
         <Icon src={home} alt=''/>
         <MenuText>Página Principal</MenuText>
-        {selectedItem === 0 && <MenuLine className="MenuLine" isSelected />}
+        <MenuLine className="MenuLine"  />
       </MenuItem>
-      <MenuItem href="#" isSelected={selectedItem === 1} onClick={() => handleItemClick(1)}>
+      <MenuItem href="#">
         <Icon src={note} alt=''/>
         <MenuText>Minhas postagens</MenuText>
-        {selectedItem === 1 && <MenuLine className="MenuLine" isSelected />}
+        <MenuLine className="MenuLine"  />
       </MenuItem>
-      <MenuItem href="#" isSelected={selectedItem === 2} onClick={() => handleItemClick(2)}>
+      <MenuItem href="#">
         <Icon src={user} alt=''/>
         <MenuText>Minha conta</MenuText>
-        {selectedItem === 2 && <MenuLine className="MenuLine" isSelected />}
+        <MenuLine className="MenuLine"  />
       </MenuItem>
     </MenuContainer>
   );

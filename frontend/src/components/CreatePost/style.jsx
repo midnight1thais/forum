@@ -2,11 +2,29 @@ import styled from "styled-components" ;
 
 import galeryImport from "../../assets/gallery-import.svg"
 
+export const BackgrondStyle = styled.div`
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    /* width: 10vw; */
+    background-color: rgb 0, 0, 0, 0.7;
+    z-index: 1000;
+`
+
 export const MainCreate = styled.div`
-    background-color: transparent;
-    display: grid;
-    width: 60vw;
-    height: 90vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 150px;
+ 
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+     width: 60vw;
+    /*height: 90vh; */
     grid-template-areas: "DivForm DivForm02";
     font-family: 'Josefin Sans', sans-serif;
 `

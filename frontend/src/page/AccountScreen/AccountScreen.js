@@ -2,9 +2,9 @@ import { Container, ContentWrapper,} from './style'
 
 import AccountHeader from "../../components/AccountHeader/AccountHeader"
 import PostsMenu from "../../components/PostsMenu/PostsMenu"
-import AccountProfileHeader from "../../components/AccountProfileHeader/AccountProfileHeader"
-import AccountMain from "../../components/AccountMain/AccountMain"
-import AccountButtons from '../../components/AccountButtons/AccountButtons'
+// import AccountProfileHeader from "../../components/AccountProfileHeader/AccountProfileHeader"
+// import AccountMain from "../../components/AccountMain/AccountMain"
+// import AccountButtons from '../../components/AccountButtons/AccountButtons'
 
 function AccountScreen(){
     return(
@@ -13,9 +13,9 @@ function AccountScreen(){
         <Container>
             <PostsMenu/>
             <ContentWrapper>
-                    <AccountProfileHeader/>
-                    <AccountMain/>
-                    <AccountButtons/>
+                    {/* <AccountProfileHeader/> */}
+                    {/* <AccountMain/> */}
+                    {/* <AccountButtons/> */}
             </ContentWrapper>
         </Container>
             </>
