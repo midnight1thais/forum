@@ -2,7 +2,7 @@ import home from '../../assets/home.png'
 import note from '../../assets/note.png'
 import user from '../../assets/user.png'
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Icon, MenuContainer, MenuItem, MenuLine, MenuText } from './style';
 
 function Menu(){

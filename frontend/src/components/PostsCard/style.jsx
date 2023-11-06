@@ -66,6 +66,15 @@ export const NameUserHeader = styled.div`
     height: 8vh;
 `
 
+export const TempoPubli = styled.p`
+    color: var(--base-mid-gray, #7A757D);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+`
+
 export const ImageUserHeader = styled.img`
     width: 3vw;
 `

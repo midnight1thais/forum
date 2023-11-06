@@ -10,7 +10,7 @@ const reactionsRouter = require('./routes/reactionsRouter');
 
 app.use(cors());
 app.use(express.json());
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 3333);
 app.use('/api', usersRouter);
 app.use('/api', loginRouter);
 app.use('/api', postRouter);

@@ -1,54 +1,98 @@
-import tecnology from '../../assets/tecnnology.svg'
 import userImg from '../../assets/userImg.svg'
 import menssages from '../../assets/messages.svg'
 
-import { BlueTextCard, ButtonContainer, ButtonContainer2, CardContainer, Content, ContentCard, FooterContent, HeaderContent, ImageUserHeader, ImgCard, MenssageImg, NameUserHeader, UserTextCard } from './style'
-import { useEffect } from 'react'
+import { BlueTextCard, ButtonContainer, ButtonContainer2, CardContainer, Content, ContentCard, FooterContent, HeaderContent, ImageUserHeader, MenssageImg, NameUserHeader, UserTextCard, TempoPubli } from './style'
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from 'axios'
+import { url } from '../../constants/url'
+
 
 function PostsCard(props) {
 
-    // const pegarNoticias=()=>{
-    //     axios.get('http://localhost:8000/news')
-    //     .then(response => props.setNews(response.data))
-    //     .catch(error => console.error(error))
-    // }
+    const [user, setUser] = useState()
+    const navigate = useNavigate()
+    const id = props.usuario
+    const [comentarios, setComentarios] = useState([])
 
-    // useEffect( ()=> {
-    //     pegarNoticias()
-    // }, [])
+    const navegar = () => {
+        navigate(`publicacao/${props.id}`)
+    }
 
-    // const novasNoticias = props.news.map( (item) =>{
-    //     return(
-    //         <div key={item.id}>
-    //             <h2>{item.titulo}</h2>
-    //             <p>{item.content}</p>
-    //         </div>
-    //     )
-    // })
+    function calcularTempo(dataCriacao) {
+        const dataAtual = new Date();
+        const diferencaEmMilissegundos = dataAtual - new Date(dataCriacao);
+        const segundos = Math.floor(diferencaEmMilissegundos / 1000);
+        const minutos = Math.floor(segundos / 60);
+        const horas = Math.floor(minutos / 60);
+        const dias = Math.floor(horas / 24);
+
+        if (dias > 0) {
+            return `${dias} dias atrás`;
+        } else if (horas > 0) {
+            return `${horas} horas atrás`;
+        } else if (minutos > 0) {
+            return `${minutos} minutos atrás`;
+        } else {
+            return `${segundos} segundos atrás`;
+        }
+    }
+
+    useEffect(() => {
+        const formData = {
+            id: id
+        }
+
+        axios.post(`${url}/find/findUser`, formData)
+            .then(function (response) {
+                setUser(response.data.data)
+            })
+            .catch(function (error) {
+                alert("erro")
+            });
+    }, [id])
+
+    useEffect(() => {
+        axios.get(`${url}/comments/comments/${props.id}`)
+            .then(function (response) {
+                setComentarios(response.data.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+    })
+
     return(
-        <CardContainer>
+    <>
+    {user && comentarios ? (
+        <CardContainer onClick={navegar}>
             <ContentCard>
                 <HeaderContent>
                     <ButtonContainer2>
                         <ImageUserHeader src={userImg} alt="Imagem do usuario"/>
                     </ButtonContainer2>
                     <NameUserHeader>
-                        <UserTextCard>Nome do Usuário</UserTextCard>
-                        <BlueTextCard>Tempo da publicação</BlueTextCard>
+                        <UserTextCard>{user.nome}</UserTextCard>
+                        <BlueTextCard>{user.cargo}</BlueTextCard>
                     </NameUserHeader>
+                    <TempoPubli>{calcularTempo(props.criado)}</TempoPubli>
                 </HeaderContent>
                 <Content>
-                    <h2>Exemplo de título de uma públicação realizada em um post</h2>
+                    <h2>{props.titulo}</h2>
                 </Content>
                 <FooterContent>
                     <ButtonContainer>
                         <MenssageImg src={menssages} alt='Ícone de mensagens'/>
-                        Comentários
+                        {comentarios.length} comentários
                     </ButtonContainer>
                 </FooterContent>
             </ContentCard>
         </CardContainer>
+        ) : (
+            <></>
+        )}
+    </>
     )
 }
 

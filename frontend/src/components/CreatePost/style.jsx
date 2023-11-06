@@ -1,6 +1,5 @@
 import styled from "styled-components" ;
 
-import galeryImport from "../../assets/gallery-import.svg"
 
 export const BackgrondStyle = styled.div`
     position: fixed;
