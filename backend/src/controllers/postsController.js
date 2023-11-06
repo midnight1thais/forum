@@ -2,7 +2,7 @@
 const connection = require('../config/db');
 
 // Função que retorna todos usuários no banco de dados
-async function  listPosts(request, response) {
+async function listPosts(request, response) {
     connection.query('SELECT * FROM posts', (err, results) => { 
         try {  
             if (results) {  // Se tiver conteúdo 
@@ -36,11 +36,12 @@ async function  listPosts(request, response) {
 // Função que cria um novo post
 async function newPost(request, response) {
     const values = [
-        request.body.posts_name,
-        request.body.posts_link
+        request.body.post_name,
+        request.body.post_descricao,
+        request.body.userPost_id
     ];
 
-    const query = "INSERT INTO posts (post_name, post_link) VALUES (?, ?)";
+    const query = "INSERT INTO posts (post_name, post_descricao, userPost_id) VALUES (?, ?, ?)";
 
     try {
         const results = await new Promise((resolve, reject) => {
@@ -73,18 +74,18 @@ async function findPost(request, response) {
     const query = "SELECT * FROM posts WHERE `post_id` = ?";
     
     // Recuperar credenciais informadas
-    const params = [request.body.post_id];
+    const params = [request.body.article_id];
 
     // Executa a ação no banco e valida os retornos para o cliente que realizou a solicitação
     connection.query(query, params, (err, results) => {
         try {            
             if (results.length > 0) {                
                 const user = {
-                    post_id: results[0].post_id,
-                    user_id: results[0].user_id,
+                    post_id: results[0].article_id,
                     post_name: results[0].post_name,
-                    post_link: results[0].post_link,
-                    post_date: results[0].post_date
+                    post_descricao: results[0].post_descricao,
+                    userPost_id: results[0].userPost_id,
+                    create_at: results[0].create_at
                 };
                 
                 response
@@ -120,4 +121,3 @@ module.exports = {
     newPost,
     findPost
 }
-

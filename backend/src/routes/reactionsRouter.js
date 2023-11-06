@@ -3,7 +3,7 @@ const router = Router();
 const { storeReaction, reactionsByPostId } = require('../controllers/reactionsController');
 const { route } = require('./usersRouter');
 
-router.post('/reaction/create', storeReaction);
+router.post('/create', storeReaction);
 router.get('/reactions_post/:post_id', reactionsByPostId);
 
 module.exports = router;

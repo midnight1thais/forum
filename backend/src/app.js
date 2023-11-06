@@ -7,14 +7,16 @@ const loginRouter = require('./routes/loginRouter');
 const postRouter = require('./routes/postsRouter');
 const commentRouter   = require('./routes/commentsRouter');
 const reactionsRouter = require('./routes/reactionsRouter');
+const findUserController = require('./routes/findUserRoutes')
 
 app.use(cors());
 app.use(express.json());
 app.set('port', process.env.PORT || 3333);
 app.use('/api', usersRouter);
-app.use('/api', loginRouter);
-app.use('/api', postRouter);
+app.use('/api/auth', loginRouter);
+app.use('/api/posts', postRouter);
 app.use('/api', commentRouter);
-app.use('/api', reactionsRouter);
+app.use('/api/reaction', reactionsRouter);
+app.use('/api/user', findUserController);
 
 module.exports = app;

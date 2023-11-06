@@ -11,72 +11,50 @@ import { url } from '../../constants/url'
 
 function PostsCard(props) {
 
-    const [user, setUser] = useState()
     const navigate = useNavigate()
+    const [user, setUser] = useState()
     const id = props.usuario
     const [comentarios, setComentarios] = useState([])
 
-    const navegar = () => {
-        navigate(`publicacao/${props.id}`)
-    }
+    // useEffect(() => {
+    //     const formData = {
+    //         id: id
+    //     }
 
-    function calcularTempo(dataCriacao) {
-        const dataAtual = new Date();
-        const diferencaEmMilissegundos = dataAtual - new Date(dataCriacao);
-        const segundos = Math.floor(diferencaEmMilissegundos / 1000);
-        const minutos = Math.floor(segundos / 60);
-        const horas = Math.floor(minutos / 60);
-        const dias = Math.floor(horas / 24);
+    //     axios.post(`${url.defaults.baseURL}/user/findUser`, formData)
+    //         .then(function (response) {
+    //             setUser(response.data.data)
+    //         })
+    //         .catch(function (error) {
+    //             alert("erro POST CARD")
+    //         });
+    // }, [id])
 
-        if (dias > 0) {
-            return `${dias} dias atrás`;
-        } else if (horas > 0) {
-            return `${horas} horas atrás`;
-        } else if (minutos > 0) {
-            return `${minutos} minutos atrás`;
-        } else {
-            return `${segundos} segundos atrás`;
-        }
-    }
-
-    useEffect(() => {
-        const formData = {
-            id: id
-        }
-
-        axios.post(`${url}/find/findUser`, formData)
-            .then(function (response) {
-                setUser(response.data.data)
-            })
-            .catch(function (error) {
-                alert("erro")
-            });
-    }, [id])
-
-    useEffect(() => {
-        axios.get(`${url}/comments/comments/${props.id}`)
-            .then(function (response) {
-                setComentarios(response.data.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-            });
-    })
+    // useEffect(() => {
+    //     axios.get(`${url.defaults.baseURL}/comments/comments/${props.id}`)
+    //         .then(function (response) {
+    //             setComentarios(response.data.data)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         });
+    // })
 
     return(
     <>
     {user && comentarios ? (
-        <CardContainer onClick={navegar}>
+        <CardContainer>
             <ContentCard>
                 <HeaderContent>
                     <ButtonContainer2>
                         <ImageUserHeader src={userImg} alt="Imagem do usuario"/>
                     </ButtonContainer2>
                     <NameUserHeader>
-                        <UserTextCard>{user.nome}</UserTextCard>
-                        <BlueTextCard>{user.cargo}</BlueTextCard>
+                        <p>AAAAAAAA</p>
+                        {/* <UserTextCard>{user.nome}</UserTextCard>
+                        <BlueTextCard>{user.cargo}</BlueTextCard> */}
                     </NameUserHeader>
-                    <TempoPubli>{calcularTempo(props.criado)}</TempoPubli>
+                    <TempoPubli>TEMPOOOOOOOOOOO</TempoPubli>
                 </HeaderContent>
                 <Content>
                     <h2>{props.titulo}</h2>

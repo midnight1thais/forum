@@ -20,28 +20,20 @@ function PostScreen(props) {
         setOpenCreatePost(!openCreatePost);
       };
 
-    // novo para ver posts
+      const [posts, setPosts] = useState([]);
 
-    const navigate = useNavigate()
-    const [posts, setPosts] = useState()
+    const fetchPosts = async () => {
+    try {
+        const response = await axios.get(`${url.defaults.baseURL}/posts/posts`);
+        setPosts(response.data); // Supondo que os dados estejam no formato de array JSON
+    } catch (error) {
+        console.error("Erro ao buscar posts:", error);
+    }
+    };
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        if (!token) {
-            navigate('/')
-        }
-    }, [navigate])
-
-    useEffect(() => {
-        axios.get(`${url}/posts/posts`)
-            .then(function (response) {
-                setPosts(response.data.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-                alert("erro")
-            });
-    })
+    fetchPosts();
+    }, []);
 
     return(
         <>
@@ -54,21 +46,15 @@ function PostScreen(props) {
                 </MenuContainerScreen>
  
                 <PostsContainerScreen>
-                {posts ? (
-                            <>
-                                {posts.map((post, index) => (
-                                    <PostsCard id={post.id}
-                                        key={index}
-                                        titulo={post.titulo}
-                                        usuario={post.user_id}
-                                        descricao={post.descricao}
-                                        criado={post.created_at}
-                                    />
-                                ))}
-                            </>
-                        ) : (
-                            <></>
-                        )}
+                {Array.isArray(posts) && posts.map((post) => (
+                    <PostsCard
+                    key={post.id}
+                    titulo={post.post_name}
+                    usuario={post.user_id}
+                    descricao={post.post_descricao}
+                    criado={post.created_at}
+                    />
+                ))}
                 </PostsContainerScreen>
 
                 <FooterPostScreen>

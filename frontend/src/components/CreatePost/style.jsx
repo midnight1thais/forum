@@ -89,7 +89,7 @@ export const TitleContainer = styled.h1`
     height: 10vh;
     padding-left: 3vw;
 `
-export const ButtonCancel = styled.input`
+export const ButtonCancel = styled.button`
     color: #00166A;
     font-size: large;
 
@@ -100,7 +100,7 @@ export const ButtonCancel = styled.input`
     width: 20vw;
     height: 8vh;
 `
-export const ButtonSave = styled.input`
+export const ButtonSave = styled.button`
     color: white;
     font-size: large;
 

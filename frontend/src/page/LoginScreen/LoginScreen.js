@@ -41,6 +41,9 @@ function LoginScreen() {
     
                 localStorage.setItem("@Auth:user", JSON.stringify(response.data.data.name));
                 localStorage.setItem("@Auth:token", response.data.data.token);
+                const userId = response.data.data.id;
+
+                localStorage.setItem("@Auth:user_id", userId);
     
                 navigate('/home');
             } else {
