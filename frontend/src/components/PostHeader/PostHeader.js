@@ -9,8 +9,7 @@ function PostHeader(){
     const navigate = useNavigate()
 
     const handleLogout = () => {
-        localStorage.removeItem('name')
-        localStorage.removeItem('token')
+        localStorage.clear();
         navigate('/')
     }
 

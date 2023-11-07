@@ -7,7 +7,7 @@ function CreatePost({isOpen, setOpenCreatePost}) {
 
     const [post_name, setTitulo] = useState()
     const [post_descricao, setDescricao] = useState()
-    const userPost_id = localStorage.getItem("@Auth:user_id")
+    const userPost_id = localStorage.getItem("@Auth:id")
 
     const handleClick = async (e) => {
         e.preventDefault();
