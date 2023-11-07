@@ -3,7 +3,7 @@ import ImagemLogin from '../../assets/ImagemLogin.png'
 import LoginHeader from '../../components/LoginHeader/LoginHeader'
 
 import { useNavigate } from 'react-router-dom';
-import { url } from '../../constants/url'
+import { baseUrl } from '../../constants/url'
 import { useState } from 'react';
 
 function LoginScreen() {
@@ -28,14 +28,14 @@ function LoginScreen() {
         console.log('---------> dada', data)
 
         try {
-            const response = await url.post("/auth/login", data);
+            const response = await baseUrl.post("/auth/login", data);
     
             console.log('***********response: ', response)
 
             if (response.data.success === true) {
                 console.log("User connected!");
     
-                url.defaults.headers.common[
+                baseUrl.defaults.headers.common[
                     "Authorization"
                 ] = `Bearer ${response.data.data.token}`;
     

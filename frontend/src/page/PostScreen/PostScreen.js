@@ -22,26 +22,26 @@ function PostScreen(props) {
 
     // novo para ver posts
 
-    const navigate = useNavigate()
-    const [posts, setPosts] = useState()
+    // const navigate = useNavigate()
+    // const [posts, setPosts] = useState()
 
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        if (!token) {
-            navigate('/')
-        }
-    }, [navigate])
+    // useEffect(() => {
+    //     const token = localStorage.getItem('@Auth:token')
+    //     if (!token) {
+    //         navigate('/')
+    //     }
+    // }, [navigate])
 
-    useEffect(() => {
-        axios.get(`${url}/posts/posts`)
-            .then(function (response) {
-                setPosts(response.data.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-                alert("erro")
-            });
-    })
+    // useEffect(() => {
+    //     axios.get(`${url}/posts/posts`)
+    //         .then(function (response) {
+    //             setPosts(response.data.data)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //             alert("erro no post screen")
+    //         });
+    // })
 
     return(
         <>
@@ -54,7 +54,7 @@ function PostScreen(props) {
                 </MenuContainerScreen>
  
                 <PostsContainerScreen>
-                {posts ? (
+                {/* {posts ? (
                             <>
                                 {posts.map((post, index) => (
                                     <PostsCard id={post.id}
@@ -68,7 +68,7 @@ function PostScreen(props) {
                             </>
                         ) : (
                             <></>
-                        )}
+                        )} */}
                 </PostsContainerScreen>
 
                 <FooterPostScreen>

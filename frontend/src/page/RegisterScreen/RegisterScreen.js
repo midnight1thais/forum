@@ -4,7 +4,7 @@ import LoginHeader from '../../components/LoginHeader/LoginHeader'
 import ImagemRegister from '../../assets/ImagemRegister.png'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
-import { url } from '../../constants/url'
+import { baseUrl } from '../../constants/url'
 
 
 function RegisterScreen() {
@@ -27,7 +27,7 @@ function RegisterScreen() {
           password,
         };
         try {
-          await url.post("/user/create", data);
+          await baseUrl.post("/user/create", data);
           console.log("Usuário criado com sucesso!");
     
           navigate('/')

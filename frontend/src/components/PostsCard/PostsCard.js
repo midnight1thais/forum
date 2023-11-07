@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from 'axios'
-import { url } from '../../constants/url'
+import { baseUrl } from '../../constants/url'
 
 
 function PostsCard(props) {
@@ -44,7 +44,7 @@ function PostsCard(props) {
             id: id
         }
 
-        axios.post(`${url}/find/findUser`, formData)
+        axios.post(`${baseUrl}/find/findUser`, formData)
             .then(function (response) {
                 setUser(response.data.data)
             })
@@ -54,7 +54,7 @@ function PostsCard(props) {
     }, [id])
 
     useEffect(() => {
-        axios.get(`${url}/comments/comments/${props.id}`)
+        axios.get(`${baseUrl}/comments/comments/${props.id}`)
             .then(function (response) {
                 setComentarios(response.data.data)
             })
