@@ -47,8 +47,8 @@ function PostsCard(props) {
                         ) : (
                             <p>Carregando...</p>
                         )}
+                    <BlueTextCard>{props.date}</BlueTextCard>
                     </NameUserHeader>
-                    <TempoPubli>{props.date}</TempoPubli>
                 </HeaderContent>
                 <Content>
                     <h2>{props.titulo}</h2>
