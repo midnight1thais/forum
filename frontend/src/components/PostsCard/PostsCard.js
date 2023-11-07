@@ -13,7 +13,7 @@ function PostsCard(props) {
 
     const navigate = useNavigate()
     const [user, setUser] = useState()
-    const id = props.usuario
+    const id = props.userIdValue
     const [comentarios, setComentarios] = useState([])
 
     // useEffect(() => {
@@ -42,7 +42,6 @@ function PostsCard(props) {
 
     return(
     <>
-    {user && comentarios ? (
         <CardContainer>
             <ContentCard>
                 <HeaderContent>
@@ -51,8 +50,8 @@ function PostsCard(props) {
                     </ButtonContainer2>
                     <NameUserHeader>
                         <p>AAAAAAAA</p>
-                        {/* <UserTextCard>{user.nome}</UserTextCard>
-                        <BlueTextCard>{user.cargo}</BlueTextCard> */}
+                        {/* {/<UserTextCard>{user.name}</UserTextCard> */}
+                        {/* <BlueTextCard>{user.cargo}</BlueTextCard> */}
                     </NameUserHeader>
                     <TempoPubli>TEMPOOOOOOOOOOO</TempoPubli>
                 </HeaderContent>
@@ -67,9 +66,8 @@ function PostsCard(props) {
                 </FooterContent>
             </ContentCard>
         </CardContainer>
-        ) : (
             <></>
-        )}
+
     </>
     )
 }

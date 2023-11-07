@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
  
-function PostScreen(props) {
+function PostScreen() {
  
     // funcionalidade do modal (antes)
     const[openCreatePost, setOpenCreatePost] = useState(false)
@@ -22,17 +22,21 @@ function PostScreen(props) {
 
       const [posts, setPosts] = useState([]);
 
-    const fetchPosts = async () => {
-    try {
-        const response = await axios.get(`${url.defaults.baseURL}/posts/posts`);
-        setPosts(response.data); // Supondo que os dados estejam no formato de array JSON
-    } catch (error) {
-        console.error("Erro ao buscar posts:", error);
-    }
-    };
+      useEffect(() => {
+        axios.get(`${url.defaults.baseURL}/posts/posts`)
+            .then(function (response) {
+                const sortedPosts = response.data.data.sort((a, b) => {
+                    const dateA = new Date(a.created_at);
+                    const dateB = new Date(b.created_at);
+                    return dateB - dateA;
+                });
 
-    useEffect(() => {
-    fetchPosts();
+                setPosts(sortedPosts);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("erro");
+            });
     }, []);
 
     return(
@@ -46,15 +50,13 @@ function PostScreen(props) {
                 </MenuContainerScreen>
  
                 <PostsContainerScreen>
-                {Array.isArray(posts) && posts.map((post) => (
-                    <PostsCard
-                    key={post.id}
-                    titulo={post.post_name}
-                    usuario={post.user_id}
-                    descricao={post.post_descricao}
-                    criado={post.created_at}
-                    />
-                ))}
+                    {posts.map((post) => (
+                        <PostsCard
+                            key={post.id}
+                            titulo={post.post_name}
+                            userIdValue={post.userPost_id}
+                        />
+                    ))}
                 </PostsContainerScreen>
 
                 <FooterPostScreen>
