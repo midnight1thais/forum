@@ -5,6 +5,6 @@ const router = Router();
 // Importar as funções (processamento da requisição) do controller
 const { findUser } = require('../controllers/findUserController');
 
-router.post('/findUser', findUser);
+router.post('/findUser/:id', findUser);
 
 module.exports = router;

@@ -17,6 +17,5 @@ app.use('/api/auth', loginRouter);
 app.use('/api/posts', postRouter);
 app.use('/api/comments', commentRouter);
 app.use('/api/reaction', reactionsRouter);
-app.use('api/user', findUserRouter)
 
 module.exports = app;

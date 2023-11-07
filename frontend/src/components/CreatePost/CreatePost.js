@@ -19,6 +19,7 @@ function CreatePost({isOpen, setOpenCreatePost}) {
         try {
             await url.post('/posts/create', formData)
             setOpenCreatePost()
+            window.location.reload();
         } catch (error) {
           console.error("Erro ao criar artigo:", error);
         }

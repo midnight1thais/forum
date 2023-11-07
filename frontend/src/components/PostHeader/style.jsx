@@ -5,7 +5,11 @@ export const Header = styled.header`
     justify-content: space-between;
     width: 100vw;
     height: 8vh;
-
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1); 
+    position: fixed;
+    top: 0;
+    z-index: 2;
 `
 
 export const ImgLupa = styled.img`
