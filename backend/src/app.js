@@ -15,7 +15,7 @@ app.set('port', process.env.PORT || 3333);
 app.use('/api', usersRouter);
 app.use('/api/auth', loginRouter);
 app.use('/api/posts', postRouter);
-app.use('/api', commentRouter);
+app.use('/api/comments', commentRouter);
 app.use('/api/reaction', reactionsRouter);
 app.use('api/user', findUserRouter)
 

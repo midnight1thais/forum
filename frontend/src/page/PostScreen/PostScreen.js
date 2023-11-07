@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import CreatePost from "../../components/CreatePost/CreatePost"
 import Button from "../../assets/add-circle.svg"
 import { url } from "../../constants/url"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 
  
@@ -14,7 +14,9 @@ function PostScreen() {
  
     // funcionalidade do modal (antes)
     const[openCreatePost, setOpenCreatePost] = useState(false)
- 
+    const navigate = useNavigate();
+    
+    
 
     const toggleCreatePost = () => {
         setOpenCreatePost(!openCreatePost);
@@ -49,13 +51,13 @@ function PostScreen() {
                     <PostsMenu />
                 </MenuContainerScreen>
  
-                <PostsContainerScreen>
+                <PostsContainerScreen >
                     {posts.map((post) => (
-                        <PostsCard
+                       <Link to="/openedScreen"> <PostsCard
                             key={post.id}
                             titulo={post.post_name}
                             userIdValue={post.userPost_id}
-                        />
+                        /></Link>
                     ))}
                 </PostsContainerScreen>
 
