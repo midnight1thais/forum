@@ -55,4 +55,6 @@ export const FooterPostScreen = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: right;
+    position: fixed;
+    bottom: 0;
 `
