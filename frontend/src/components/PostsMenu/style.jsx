@@ -8,6 +8,7 @@ export const MenuContainer = styled.div`
   left: 2%;
   top: 10%;
   padding-top: 8vh;
+  z-index: 1;
 `;
 
 export const MenuItem = styled.a`

@@ -21,6 +21,7 @@ function PostScreen() {
       };
 
       const [posts, setPosts] = useState([]);
+      console.log('--------------posts :', posts);
 
       useEffect(() => {
         axios.get(`${url.defaults.baseURL}/posts/posts`)
@@ -39,6 +40,29 @@ function PostScreen() {
             });
     }, []);
 
+    const [users, setUsers] = useState({});
+
+
+    useEffect(() => {
+        // Buscar informações de todos os usuários e armazenar em um objeto
+        axios.get(`${url.defaults.baseURL}/users`)
+            .then(function (response) {
+                const usersData = response.data.data;
+                const usersObject = {};
+                usersData.forEach(user => {
+                    usersObject[user.id] = user;
+                });
+                setUsers(usersObject);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert('Erro ao carregar informações dos usuários.');
+            });
+    }, []);
+
+    console.log('aaaaaaa', users)
+    
+
     return(
         <>
         {openCreatePost && <Overlay show={true} />} 
@@ -55,6 +79,8 @@ function PostScreen() {
                             key={post.id}
                             titulo={post.post_name}
                             userIdValue={post.userPost_id}
+                            user={users[post.userPost_id]}
+                            date='data'
                         />
                     ))}
                 </PostsContainerScreen>

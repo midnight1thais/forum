@@ -18,11 +18,11 @@ export const MenuContainerScreen = styled.div`
  
 export const PostsContainerScreen = styled.div`
     grid-area: "Posts";
-    padding-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5vh;
+    padding-top: 15vh;
 `
  
 export const ButtonCreatePost = styled.button`

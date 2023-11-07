@@ -12,8 +12,8 @@ import { url } from '../../constants/url'
 function PostsCard(props) {
 
     const navigate = useNavigate()
-    const [user, setUser] = useState()
-    const id = props.userIdValue
+    const [user, setUser] = useState(null);
+    const userId = props.userIdValue;
     const [comentarios, setComentarios] = useState([])
 
     // useEffect(() => {
@@ -40,6 +40,16 @@ function PostsCard(props) {
     //         });
     // })
 
+    useEffect(() => {
+        axios.get(`${url.defaults.baseURL}/user/information/${userId}`)
+            .then(function (response) {
+                setUser(response.data.data);
+            })
+            .catch(function (error) {
+                alert("Erro ao buscar informações do usuário");
+            });
+    }, [userId]);
+
     return(
     <>
         <CardContainer>
@@ -49,11 +59,15 @@ function PostsCard(props) {
                         <ImageUserHeader src={userImg} alt="Imagem do usuario"/>
                     </ButtonContainer2>
                     <NameUserHeader>
-                        <p>AAAAAAAA</p>
-                        {/* {/<UserTextCard>{user.name}</UserTextCard> */}
-                        {/* <BlueTextCard>{user.cargo}</BlueTextCard> */}
+                    {user ? (
+                            <>
+                                <p>{user.name}</p>
+                            </>
+                        ) : (
+                            <p>Carregando...</p>
+                        )}
                     </NameUserHeader>
-                    <TempoPubli>TEMPOOOOOOOOOOO</TempoPubli>
+                    <TempoPubli>{props.date}</TempoPubli>
                 </HeaderContent>
                 <Content>
                     <h2>{props.titulo}</h2>
