@@ -5,7 +5,7 @@ const connection = require('../config/db');
 async function listComments(request, response) {
     const query = "SELECT * FROM comments WHERE `post_id` = ?";
     
-    const params = [request.params.id];
+    const params = [request.params.post_id];
 
     // Executa a ação no banco e valida os retornos para o cliente que realizou a solicitação
     connection.query(query, params, (err, results) => {

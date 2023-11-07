@@ -7,7 +7,7 @@ const router = Router();
 const { 
     listComments,
     newComment
-} = require('../controllers/commentController')
+} = require('../controllers/commentsController')
 
 // Criar os endpoints (rotas) que serão acessados a partir dos métodos HTTP (get,post,put,delete)
 router.get('/comments/:id', listComments);

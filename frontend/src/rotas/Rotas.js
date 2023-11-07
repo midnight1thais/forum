@@ -3,7 +3,7 @@ import LoginScreen from '../page/LoginScreen/LoginScreen'
 import PostScreen from "../page/PostScreen/PostScreen";
 import AccountScreen from "../page/AccountScreen/AccountScreen";
 import RegisterScreen from "../page/RegisterScreen/RegisterScreen";
-import PostOpened from "../components/PostOpened/PostOpened";
+import PostOpenedScreen from "../page/PostOpenedScreen/PostOpenedScreen"
 
 
 const PrivateRoutes = ({children, redirectTo}) => {
@@ -19,8 +19,8 @@ function Rotas(){
         <Routes>
             <Route index element={<LoginScreen/>}/>
             <Route path="register" element={<RegisterScreen/>}/>
-            <Route path="openedScreen" element={<PrivateRoutes redirectTo={'/'}>
-                <PostOpened/>
+            <Route path="opened_screen" element={<PrivateRoutes redirectTo={'/'}>
+                <PostOpenedScreen/>
             </PrivateRoutes>}/>
             <Route path="home" element={<PrivateRoutes redirectTo={'/'}>
                 <PostScreen/>

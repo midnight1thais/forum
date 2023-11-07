@@ -15,6 +15,10 @@ function PostScreen() {
     // funcionalidade do modal (antes)
     const[openCreatePost, setOpenCreatePost] = useState(false)
     const navigate = useNavigate();
+
+    function goToOpenedPostScreen() {
+        navigate('/opened_screen')
+    }
     
     
 
@@ -23,7 +27,6 @@ function PostScreen() {
       };
 
       const [posts, setPosts] = useState([]);
-      console.log('--------------posts :', posts);
 
       useEffect(() => {
         axios.get(`${url.defaults.baseURL}/posts/posts`)
@@ -92,14 +95,14 @@ function PostScreen() {
                 </MenuContainerScreen>
  
                 <PostsContainerScreen >
-                    {posts.map((post) => (
-                       <Link to="/openedScreen"> <PostsCard
+                    {posts.map((post) => ( 
+                       <PostsCard
                             key={post.id}
                             titulo={post.post_name}
                             userIdValue={post.userPost_id}
                             user={users[post.userPost_id]}
                             date={calculateTime(post.created_at)}
-                        /></Link>
+                        />
                     ))}
                 </PostsContainerScreen>
 

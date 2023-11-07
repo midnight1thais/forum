@@ -2,13 +2,50 @@ import { ButtonAddComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments
 
 import profileTest from "../../assets/profile.svg"
 import addCircle from "../../assets/add-circle.svg"
+import axios from "axios";
+import { url } from "../../constants/url";
+import Comments from "../Comments/Comments";
 
-import {
-    Tag
-  } from '@chakra-ui/react'
-import Comments from "../Comments/Comments"
 
 function PostOpened() {
+    const [comments, setComments] = useState([]);
+
+    useEffect(() => {
+        // Buscar informações de todos os usuários e armazenar em um objeto
+        axios.get(`${url.defaults.baseURL}/users`)
+            .then(function (response) {
+                const usersData = response.data.data;
+                const usersObject = {};
+                usersData.forEach(user => {
+                    usersObject[user.id] = user;
+                });
+                setUsers(usersObject);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert('Erro ao carregar informações dos usuários.');
+            });
+    }, []);
+
+    useEffect(() => {
+        axios.get(`${url.defaults.baseURL}/comments/:id`)
+            .then(function (response) {
+                const sortedPosts = response.data.data.sort((a, b) => {
+                    const dateA = new Date(a.created_at);
+                    const dateB = new Date(b.created_at);
+                    return dateB - dateA;
+                });
+
+                setPosts(sortedPosts);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("erro");
+            });
+    }, []);
+
+    const [users, setUsers] = useState({});
+
     return(
         <OpenedPostContainer>
             <HeaderOpenedPost>
@@ -19,12 +56,6 @@ function PostOpened() {
                 <TitlePostContainer>
                     <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio alias distinctio dolorem  Odio alias distinctio dolorem  Odio alias distinctio dolorem  Odio alias distinctio dolorem aaaaaa</h2>
                 </TitlePostContainer>
-                <TagsPostContainer>
-                    <Tag
-                    bg={"#EEF2FE"}
-                    padding={6}
-                    borderRadius={20}>Sample Tag</Tag>
-                </TagsPostContainer>
             </HeaderOpenedPost>
             <ContentOpenedPost>
                 <p>
@@ -41,8 +72,15 @@ function PostOpened() {
                     </div>
                 </HeaderComments>
                 <div>
-                    <Comments/>
-                    <Comments/>
+                    {comments.map((comment) => 
+                        <Comments
+                        key={comment.id}
+                        titulo={comment.comment_name}
+                        userIdValue={comment.userComment_id}
+                        user={users[comment.userComment_id]}
+                        date={calculateTime(comment.created_at)}
+                        />
+                    )}
                 </div>
             </CommentsOpenedPost>
         </OpenedPostContainer>

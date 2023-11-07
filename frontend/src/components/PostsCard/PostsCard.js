@@ -11,10 +11,15 @@ import { url } from '../../constants/url'
 
 function PostsCard(props) {
 
-    const navigate = useNavigate()
     const [user, setUser] = useState(null);
     const userId = props.userIdValue;
     const [comentarios, setComentarios] = useState([])
+
+    const navigate = useNavigate();
+
+    function goToOpenedPostScreen() {
+        navigate('/opened_screen')
+    }
 
     useEffect(() => {
         axios.get(`${url.defaults.baseURL}/user/information/${userId}`)
@@ -29,7 +34,7 @@ function PostsCard(props) {
     return(
     <>
         <CardContainer>
-            <ContentCard>
+            <ContentCard onClick={goToOpenedPostScreen}>
                 <HeaderContent>
                     <ButtonContainer2>
                         <ImageUserHeader src={userImg} alt="Imagem do usuario"/>
