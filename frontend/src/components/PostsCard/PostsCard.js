@@ -16,30 +16,6 @@ function PostsCard(props) {
     const userId = props.userIdValue;
     const [comentarios, setComentarios] = useState([])
 
-    // useEffect(() => {
-    //     const formData = {
-    //         id: id
-    //     }
-
-    //     axios.post(`${url.defaults.baseURL}/user/findUser`, formData)
-    //         .then(function (response) {
-    //             setUser(response.data.data)
-    //         })
-    //         .catch(function (error) {
-    //             alert("erro POST CARD")
-    //         });
-    // }, [id])
-
-    // useEffect(() => {
-    //     axios.get(`${url.defaults.baseURL}/comments/comments/${props.id}`)
-    //         .then(function (response) {
-    //             setComentarios(response.data.data)
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error)
-    //         });
-    // })
-
     useEffect(() => {
         axios.get(`${url.defaults.baseURL}/user/information/${userId}`)
             .then(function (response) {
