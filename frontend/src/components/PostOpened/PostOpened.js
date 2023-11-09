@@ -1,4 +1,4 @@
-import { ButtonAddComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments, HeaderOpenedPost, ImgProfilePost, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
+import { ButtonAddComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments, HeaderOpenedPost, ImgProfilePost, InputComment, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
 
 import profileTest from "../../assets/profile.svg"
 import addCircle from "../../assets/add-circle.svg"
@@ -66,10 +66,10 @@ function PostOpened() {
                         <h3>Comentários</h3>
                     </div>
                     <div>
-                        <input placeholder="Coloque seu comentário"/>
                         <ButtonAddComment><img src={addCircle} alt="Botão de adicionar comentário"/></ButtonAddComment>
                     </div>
                 </HeaderComments>
+                <InputComment placeholder="Coloque seu comentário"/>
                 <div>
                     {comments.map((comment) => 
                         <Comments

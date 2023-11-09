@@ -72,3 +72,20 @@ export const HeaderComments = styled.div`
 export const ButtonAddComment = styled(ButtonContainer)`
     
 `
+
+export const InputComment =  styled.input`
+    background: none;
+    border: 1px #00166A solid;
+    border-radius: 8px;
+    height: 5vh;
+    width: 55vw;
+
+    &:focus {
+        outline: 0;
+        padding-left: 0.5vw;
+    }
+    &::placeholder{
+        margin-left: 2vw;
+    }
+    
+`
