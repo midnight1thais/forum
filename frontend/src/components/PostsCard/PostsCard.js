@@ -13,7 +13,6 @@ function PostsCard(props) {
 
     const [user, setUser] = useState(null);
     const userId = props.userIdValue;
-    const [comentarios, setComentarios] = useState([])
 
     const navigate = useNavigate();
 
