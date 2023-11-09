@@ -97,7 +97,8 @@ function PostScreen() {
                 <PostsContainerScreen >
                     {posts.map((post) => ( 
                        <PostsCard
-                            key={post.id}
+                            key={post.post_id}
+                            postId={post.post_id}
                             titulo={post.post_name}
                             userIdValue={post.userPost_id}
                             user={users[post.userPost_id]}

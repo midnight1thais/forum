@@ -69,51 +69,34 @@ async function newPost(request, response) {
     }
 }
 
-async function findPost(request, response) {
-    // Preparar o comando de execução no banco
-    const query = "SELECT * FROM posts WHERE `post_id` = ?";
-    
-    // Recuperar credenciais informadas
-    const params = [request.body.article_id];
 
-    // Executa a ação no banco e valida os retornos para o cliente que realizou a solicitação
-    connection.query(query, params, (err, results) => {
-        try {            
-            if (results.length > 0) {                
-                const user = {
-                    post_id: results[0].article_id,
-                    post_name: results[0].post_name,
-                    post_descricao: results[0].post_descricao,
-                    userPost_id: results[0].userPost_id,
-                    create_at: results[0].create_at
-                };
-                
-                response
-                .status(200)
-                .json({
-                    success: true,
-                    message: `Sucesso! Post encontrado.`,
-                    data: user
-                });
-            } else {
-                response
-                    .status(404)
-                    .json({
-                        success: false,
-                        message: `Post não encontrado. Verifique o ID informado`,
-                        query: err.sql,
-                        sqlMessage: err.sqlMessage
-                    });
-            }
-        } catch (e) {
-            response.status(500).json({
-                success: false,
-                message: "Ocorreu um erro ao buscar o post.",
-                error: e
-            });
-        }
+async function findPost(request, response) {
+    const postId = request.params.post_id; // Extrair o post_id dos parâmetros da URL
+    console.log("Post ID:", postId);
+  
+    // Preparar o comando de execução no banco
+    connection.query('SELECT * FROM posts WHERE post_id = ?', [postId], (err, results) => {
+      if (err) {
+        response.status(400).json({
+          success: false,
+          message: "An error has occurred. Unable to return post informations.",
+          query: err.sql,
+          sqlMessage: err.sqlMessage
+        });
+      } else if (results.length > 0) {
+        response.status(200).json({
+          success: true,
+          message: 'Success in returning post informations.',
+          data: results[0]
+        });
+      } else {
+        response.status(400).json({
+          success: false,
+          message: `Unable to return post informations. Post not found.`,
+        });
+      }
     });
-}
+  }
 
 
 module.exports = {

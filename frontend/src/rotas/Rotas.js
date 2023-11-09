@@ -19,7 +19,7 @@ function Rotas(){
         <Routes>
             <Route index element={<LoginScreen/>}/>
             <Route path="register" element={<RegisterScreen/>}/>
-            <Route path="opened_screen" element={<PrivateRoutes redirectTo={'/'}>
+            <Route path="opened_screen/:postId" element={<PrivateRoutes redirectTo={'/'}>
                 <PostOpenedScreen/>
             </PrivateRoutes>}/>
             <Route path="home" element={<PrivateRoutes redirectTo={'/'}>

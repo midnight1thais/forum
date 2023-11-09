@@ -18,7 +18,7 @@ function PostsCard(props) {
     const navigate = useNavigate();
 
     function goToOpenedPostScreen() {
-        navigate('/opened_screen')
+        navigate(`/opened_screen/${props.postId}`);
     }
 
     useEffect(() => {

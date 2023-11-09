@@ -10,6 +10,6 @@ const {
 
 router.get('/posts', listPosts);
 router.post('/create', newPost);
-router.post('/find_posts', findPost);
+router.get('/find/:post_id', findPost);
 
 module.exports = router;
