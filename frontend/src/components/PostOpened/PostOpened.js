@@ -100,9 +100,10 @@ function PostOpened() {
                     <div>
                         <h3>Comentários</h3>
                     </div>
-                    <div>
-                        <ButtonAddComment><img src={addCircle} alt="Botão de adicionar comentário"/></ButtonAddComment>
-                    </div>
+                    <form>
+                        <input type="text"/>
+                        <button>Enviar</button>
+                    </form>
                 </HeaderComments>
                 <div>
                     {/* {comments.map((comment) => 
