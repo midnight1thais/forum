@@ -3,56 +3,49 @@ const connection = require('../config/db');
 
 // Função que retorna todos usuários no banco de dados
 async function listComments(request, response) {
-    const query = "SELECT * FROM comments WHERE `post_id` = ?";
-    
-    const params = [request.params.post_id];
-
-    // Executa a ação no banco e valida os retornos para o cliente que realizou a solicitação
-    connection.query(query, params, (err, results) => {
-        try {            
-            if (results) {                
-                response
-                .status(200)
-                .json({
-                    success: true,
-                    message: `Sucesso! Comentários encontrados.`,
-                    data: results
-                });
-            } else {
-                response
-                    .status(404)
-                    .json({
-                        success: false,
-                        message: `Comentários não encontrados. Verifique o ID informado`,
-                        query: err.sql,
-                        sqlMessage: err.sqlMessage
-                    });
-            }
-        } catch (e) {
-            response.status(500).json({
-                success: false,
-                message: "Ocorreu um erro ao buscar os comentários.",
-                error: e
-            });
-        }
+    const postId = request.params.commentPost_id;
+  
+    // Preparar o comando de execução no banco
+    connection.query('SELECT * FROM comments WHERE commentPost_id = ?', [postId], (err, results) => {
+      if (err) {
+        response.status(400).json({
+          success: false,
+          message: "An error has occurred. Unable to return user informations.",
+          query: err.sql,
+          sqlMessage: err.sqlMessage
+        });
+      } else if (results.length > 0) {
+        response.status(200).json({
+          success: true,
+          message: 'Success in returning user informations.',
+          data: results[0] 
+        });
+      } else {
+        response.status(400).json({
+          success: false,
+          message: `Unable to return user informations. User not found.`,
+        });
+      }
     });
 }
 
 
-// Função que cria um novo post
 async function newComment(request, response) {
+    console.log("Novo comentário recebido:", request.body);
+
     const values = [
-        request.body.descricao,
-        request.body.idUser,
-        request.body.idPost,
+        request.body.comment_descricao,
+        request.body.commentUser_id,
+        request.body.commentPost_id,
     ];
 
-    const query = "INSERT INTO comments (descricao, user_id, post_id) VALUES (?, ?, ?)";
+    const query = "INSERT INTO comments (comment_descricao, commentUser_id, commentPost_id) VALUES (?, ?, ?)";
 
     try {
         const results = await new Promise((resolve, reject) => {
             connection.query(query, values, (err, results) => {
                 if (err) {
+                    console.error('Erro no banco de dados:', err);
                     reject(err);
                 } else {
                     resolve(results);
@@ -60,6 +53,7 @@ async function newComment(request, response) {
             });
         });
 
+        console.log("Comentário criado com sucesso:", results);
         response.status(201).json({
             success: true,
             message: "Sucesso! Comentário criado",

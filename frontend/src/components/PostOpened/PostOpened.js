@@ -1,4 +1,4 @@
-import { ButtonAddComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments, HeaderOpenedPost, ImgProfilePost, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
+import { ButtonAddComment, ButtonComment, CommentsOpenedPost, ContentOpenedPost, HeaderComments, HeaderOpenedPost, ImgProfilePost, InputComment, OpenedPostContainer, ProfileNameContainer, TagsPostContainer, TitlePostContainer } from "./style"
 
 import profileTest from "../../assets/profile.svg"
 import addCircle from "../../assets/add-circle.svg"
@@ -10,66 +10,67 @@ import { useParams } from 'react-router-dom';
 
 function PostOpened() {
     const [comments, setComments] = useState([]);
+    const [newCommentText, setNewCommentText] = useState('');
     const [user, setUser] = useState(null);
     const [postData, setPostData] = useState('');
+    const [users, setUsers] = useState({});
+    const [userPost_id, setUserPostId] = useState(null); // Adicionei um estado para userPost_id
+    const param = useParams();
+    const postIdValue = param.postId;
 
-    const param = useParams()
-    const postIdValue = param.postId
-    console.log('------------postIdValue :', postIdValue);
-    
+   
     useEffect(() => {
-        axios.get(`${url.defaults.baseURL}/posts/find/${postIdValue}`)
-        .then(response => {
-          const postDataFromServer = response.data; 
-          setPostData(postDataFromServer.data);
-        })
-        .catch(error => {
-          console.error('Erro ao buscar dados do post:', error);
-        });
-    }, []);
-
-
-    useEffect(() => {
-        axios.get(`${url.defaults.baseURL}/user/information/${postData.userPost_id}`)
+        // Buscar informações de todos os usuários e armazenar em um objeto
+        axios
+            .get(`${url.defaults.baseURL}/users`)
             .then(function (response) {
-                setUser(response.data.data);
+                const usersData = response.data.data;
+                const usersObject = {};
+                usersData.forEach((user) => {
+                    usersObject[user.id] = user;
+                });
+                setUsers(usersObject);
             })
             .catch(function (error) {
-                console.log("Erro ao buscar informações do usuário");
+                console.log(error);
+                alert('Erro ao carregar informações dos usuários.');
             });
-    }, [postData.userPost_id]);
+    }, []);
 
-    console.log('aaaaaaa', user)
+    useEffect(() => {
+        axios
+            .get(`${url.defaults.baseURL}/posts/find/${postIdValue}`)
+            .then((response) => {
+                const postDataFromServer = response.data;
+                setPostData(postDataFromServer.data);
+                setUserPostId(postDataFromServer.data.userPost_id);
+            })
+            .catch((error) => {
+                console.error('Erro ao buscar dados do post:', error);
+            });
+    }, [postIdValue]);
 
-
+    useEffect(() => {
+        // Verificar se userPost_id está definido antes de fazer a solicitação para obter informações do usuário
+        if (userPost_id) {
+            axios
+                .get(`${url.defaults.baseURL}/user/information/${userPost_id}`)
+                .then(function (response) {
+                    setUser(response.data.data);
+                })
+                .catch(function (error) {
+                    console.log('Erro ao buscar informações do usuário');
+                });
+        }
+    }, [userPost_id]);
 
     // useEffect(() => {
-    //     // Buscar informações de todos os usuários e armazenar em um objeto
-    //     axios.get(`${url.defaults.baseURL}/users`)
+    //     axios.get(`${url.defaults.baseURL}/comments/${postIdValue}`)
     //         .then(function (response) {
-    //             const usersData = response.data.data;
-    //             const usersObject = {};
-    //             usersData.forEach(user => {
-    //                 usersObject[user.id] = user;
-    //             });
-    //             setUsers(usersObject);
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //             alert('Erro ao carregar informações dos usuários.');
-    //         });
-    // }, []);
+    //             const sortedComments = response.data.data
+    //             console.log("Dados dos comentários:", sortedComments); // Adicione esta linha
 
-    // useEffect(() => {
-    //     axios.get(`${url.defaults.baseURL}/comments/:id`)
-    //         .then(function (response) {
-    //             const sortedPosts = response.data.data.sort((a, b) => {
-    //                 const dateA = new Date(a.created_at);
-    //                 const dateB = new Date(b.created_at);
-    //                 return dateB - dateA;
-    //             });
-
-    //             setPosts(sortedPosts);
+    //             setComments(sortedComments);
     //         })
     //         .catch(function (error) {
     //             console.log(error);
@@ -77,7 +78,37 @@ function PostOpened() {
     //         });
     // }, []);
 
-    // const [users, setUsers] = useState({});
+    const handleCommentSubmit = async (e) => {
+        e.preventDefault();
+        console.log("Novo comentário:", newCommentText, userPost_id, postIdValue);
+    
+        axios.post(`${url.defaults.baseURL}/comments/create`, {
+            comment_descricao: newCommentText,
+            commentUser_id: userPost_id,
+            commentPost_id: postIdValue
+        })
+        .then(response => {
+            console.log("Resposta do servidor:", response.data);
+            setNewCommentText("");
+    
+            // Após adicionar um novo comentário, busque novamente os comentários no servidor
+            axios.get(`${url.defaults.baseURL}/comments/${postIdValue}`)
+                .then(function (response) {
+                    const sortedComments = response.data.data;
+                    console.log("Dados dos comentários:", sortedComments);
+    
+                    setComments(sortedComments);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("erro");
+                });
+        })
+        .catch(error => {
+            console.error('Erro ao criar o comentário:', error);
+        });
+    };
+    console.log("Estado de comments:", comments); // Adicione esta linha
 
     return(
         <OpenedPostContainer>
@@ -100,21 +131,34 @@ function PostOpened() {
                     <div>
                         <h3>Comentários</h3>
                     </div>
+                    
                     <form>
-                        <input type="text"/>
-                        <button>Enviar</button>
+                        <InputComment 
+                        type="text"
+                        placeholder='coloque seu comentário'
+                        value={newCommentText}
+                        onChange={(e) => setNewCommentText(e.target.value)}
+                        />
+                        <ButtonComment onClick={handleCommentSubmit}>Enviar</ButtonComment>
                     </form>
                 </HeaderComments>
                 <div>
-                    {/* {comments.map((comment) => 
-                        <Comments
-                        key={comment.id}
-                        titulo={comment.comment_name}
-                        userIdValue={comment.userComment_id}
-                        user={users[comment.userComment_id]}
-                        date={calculateTime(comment.created_at)}
-                        />
-                    )} */}
+
+                {comments ? (
+                <>
+                  {comments.map((comment, index) => (
+                    <Comment key={index}
+                      criado={comment.created_at}
+                      comentario={comment.descricao}
+                      userIdValue={comment.commentUser_id}
+                      user={users[comment.commentUser_id]}
+                    />
+                  ))}
+                </>
+              ) : (
+                <p>Carregando comentários...</p>
+              )}
+
                 </div>
             </CommentsOpenedPost>
         </OpenedPostContainer>

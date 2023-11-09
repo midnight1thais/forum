@@ -10,7 +10,7 @@ const {
 } = require('../controllers/commentsController')
 
 // Criar os endpoints (rotas) que serão acessados a partir dos métodos HTTP (get,post,put,delete)
-router.get('/comments/:id', listComments);
+router.get('/:commentPost_id', listComments);
 router.post('/create', newComment);
 
 module.exports = router;

@@ -3,23 +3,37 @@ import { url } from "../../constants/url"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-
-
 function Comments(props) {
-    const [user, setUser] = useState()
-    const [comentarios, setComentarios] = useState()
+    const [user, setUser] = useState(null);
 
+    useEffect(() => {
+        // Buscar informações do usuário associado ao comentário
+        axios.get(`${url.defaults.baseURL}/user/information/${props.userIdValue}`)
+            .then(function (response) {
+                setUser(response.data.data);
+            })
+            .catch(function (error) {
+                console.log('Erro ao buscar informações do usuário');
+            });
+    }, [props.userIdValue]);
 
-    return(
+    return (
         <CommentContainer>
             <CommentUserContainer>
-                <h4>{props.user_name}</h4>
+                {user ? (
+                    <>
+                        <p>{user.name}</p>
+                    </>
+                ) : (
+                    <p>Carregando...</p>
+                )}
             </CommentUserContainer>
             <div>
-                <p>{props.comentario} </p>
+                <p>{props.comentario}</p>
             </div>
         </CommentContainer>
-    )
+    );
 }
 
-export default Comments
+export default Comments;
+

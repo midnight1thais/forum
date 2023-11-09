@@ -61,9 +61,9 @@ export const CommentsOpenedPost = styled.div`
 
 export const HeaderComments = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
 
     height: 8vh;
     padding-right: 3vw;
@@ -71,6 +71,11 @@ export const HeaderComments = styled.div`
 
 export const ButtonAddComment = styled(ButtonContainer)`
     
+`
+
+export const FormComment = styled.form`
+    display: flex;
+    flex-direction: column;
 `
 
 export const InputComment =  styled.input`
@@ -85,7 +90,24 @@ export const InputComment =  styled.input`
         padding-left: 0.5vw;
     }
     &::placeholder{
-        margin-left: 2vw;
+        margin-left: 5vw;
     }
     
+`
+
+export const ButtonComment = styled.button`
+    color: #00166A;
+    font-size: small;
+
+    margin-left: 2vw;
+    background: none;
+    border: 1.5px #00166A solid;
+    border-radius: 100px;
+
+    width: 9vw;
+    height: 4vh;
+
+    &:hover{
+        background-color: #c1caed;
+    }
 `

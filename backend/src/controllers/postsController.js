@@ -72,7 +72,6 @@ async function newPost(request, response) {
 
 async function findPost(request, response) {
     const postId = request.params.post_id; // Extrair o post_id dos parâmetros da URL
-    console.log("Post ID:", postId);
   
     // Preparar o comando de execução no banco
     connection.query('SELECT * FROM posts WHERE post_id = ?', [postId], (err, results) => {
