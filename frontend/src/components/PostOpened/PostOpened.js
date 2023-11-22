@@ -12,7 +12,7 @@ function PostOpened() {
     const [comments, setComments] = useState([]);
     const [newCommentText, setNewCommentText] = useState('');
     const [user, setUser] = useState(null);
-    const [postData, setPostData] = useState('');
+    const [postData, setPostData] = useState([]);
     const [users, setUsers] = useState({});
     const [userPost_id, setUserPostId] = useState(null); // Adicionei um estado para userPost_id
     const param = useParams();
@@ -35,7 +35,7 @@ function PostOpened() {
         })
         .catch(function (error) {
             console.log(error);
-            alert('Erro ao carregar informações dos usuários.');
+            console.log('Erro ao carregar informações dos usuários.');
         });
     }, []);
     
@@ -77,7 +77,7 @@ function PostOpened() {
             })
             .catch(function (error) {
                 console.log(error);
-                alert("erro");
+                console.log("erro");
             });
         }, [])
         
@@ -93,6 +93,7 @@ function PostOpened() {
             .then(response => {
                 console.log("Resposta do servidor:", response.data);
                 setNewCommentText("");
+                window.location.reload();
             })
         }
         
