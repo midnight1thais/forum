@@ -27,10 +27,10 @@ function Comments(props) {
                 ) : (
                     <p>Carregando...</p>
                 )}
-            </CommentUserContainer>
             <div>
                 <p>{props.comentario}</p>
             </div>
+            </CommentUserContainer>
         </CommentContainer>
     );
 }

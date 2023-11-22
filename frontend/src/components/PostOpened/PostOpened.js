@@ -16,30 +16,32 @@ function PostOpened() {
     const [users, setUsers] = useState({});
     const [userPost_id, setUserPostId] = useState(null); // Adicionei um estado para userPost_id
     const param = useParams();
-    const postIdValue = param.postId;
+    const postIdValue = parseInt(param.postId, 10);
 
-   
+    const idUserComment = parseInt(localStorage.getItem("@Auth:id"),10)
+    
+    
     useEffect(() => {
         // Buscar informações de todos os usuários e armazenar em um objeto
         axios
-            .get(`${url.defaults.baseURL}/users`)
-            .then(function (response) {
-                const usersData = response.data.data;
-                const usersObject = {};
-                usersData.forEach((user) => {
-                    usersObject[user.id] = user;
-                });
-                setUsers(usersObject);
-            })
-            .catch(function (error) {
-                console.log(error);
-                alert('Erro ao carregar informações dos usuários.');
+        .get(`${url.defaults.baseURL}/users`)
+        .then(function (response) {
+            const usersData = response.data.data;
+            const usersObject = {};
+            usersData.forEach((user) => {
+                usersObject[user.id] = user;
             });
+            setUsers(usersObject);
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert('Erro ao carregar informações dos usuários.');
+        });
     }, []);
-
+    
     useEffect(() => {
         axios
-            .get(`${url.defaults.baseURL}/posts/find/${postIdValue}`)
+        .get(`${url.defaults.baseURL}/posts/find/${postIdValue}`)
             .then((response) => {
                 const postDataFromServer = response.data;
                 setPostData(postDataFromServer.data);
@@ -48,12 +50,12 @@ function PostOpened() {
             .catch((error) => {
                 console.error('Erro ao buscar dados do post:', error);
             });
-    }, [postIdValue]);
-
-    useEffect(() => {
-        // Verificar se userPost_id está definido antes de fazer a solicitação para obter informações do usuário
-        if (userPost_id) {
-            axios
+        }, [postIdValue]);
+        
+        useEffect(() => {
+            // Verificar se userPost_id está definido antes de fazer a solicitação para obter informações do usuário
+            if (userPost_id) {
+                axios
                 .get(`${url.defaults.baseURL}/user/information/${userPost_id}`)
                 .then(function (response) {
                     setUser(response.data.data);
@@ -61,57 +63,42 @@ function PostOpened() {
                 .catch(function (error) {
                     console.log('Erro ao buscar informações do usuário');
                 });
-        }
-    }, [userPost_id]);
-
-    // useEffect(() => {
-    //     axios.get(`${url.defaults.baseURL}/comments/${postIdValue}`)
-    //         .then(function (response) {
-    //             const sortedComments = response.data.data
-    //             console.log("Dados dos comentários:", sortedComments); // Adicione esta linha
-
-    //             setComments(sortedComments);
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //             alert("erro");
-    //         });
-    // }, []);
-
-    const handleCommentSubmit = async (e) => {
-        e.preventDefault();
-        console.log("Novo comentário:", newCommentText, userPost_id, postIdValue);
-    
-        axios.post(`${url.defaults.baseURL}/comments/create`, {
-            comment_descricao: newCommentText,
-            commentUser_id: userPost_id,
-            commentPost_id: postIdValue
-        })
-        .then(response => {
-            console.log("Resposta do servidor:", response.data);
-            setNewCommentText("");
-    
+            }
+        }, [userPost_id]);
+        
+        useEffect(() => {
             // Após adicionar um novo comentário, busque novamente os comentários no servidor
             axios.get(`${url.defaults.baseURL}/comments/${postIdValue}`)
-                .then(function (response) {
-                    const sortedComments = response.data.data;
-                    console.log("Dados dos comentários:", sortedComments);
-    
-                    setComments(sortedComments);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    alert("erro");
-                });
-        })
-        .catch(error => {
-            console.error('Erro ao criar o comentário:', error);
-        });
-    };
-    console.log("Estado de comments:", comments); // Adicione esta linha
-
-    return(
-        <OpenedPostContainer>
+            .then(function (response) {
+                const sortedComments = response.data.data;
+                console.log('--------sortedComments :', sortedComments);
+                
+                setComments(sortedComments);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("erro");
+            });
+        }, [])
+        
+        const handleCommentSubmit = async (e) => {
+            e.preventDefault();
+            console.log("Novo comentário:", newCommentText, userPost_id, postIdValue);
+            
+            axios.post(`${url.defaults.baseURL}/comments/create`, {
+                comment_descricao: newCommentText,
+                commentUser_id: idUserComment,
+                commentPost_id: postIdValue
+            })
+            .then(response => {
+                console.log("Resposta do servidor:", response.data);
+                setNewCommentText("");
+            })
+        }
+        
+        console.log('-------comments :', comments);
+        return(
+            <OpenedPostContainer>
             <HeaderOpenedPost>
                 <ProfileNameContainer>
                     <ImgProfilePost src={profileTest} alt="Imagem de exemplo do perfil"/>
@@ -144,20 +131,20 @@ function PostOpened() {
                 </HeaderComments>
                 <div>
 
-                {comments ? (
-                <>
-                  {comments.map((comment, index) => (
-                    <Comment key={index}
-                      criado={comment.created_at}
-                      comentario={comment.descricao}
-                      userIdValue={comment.commentUser_id}
-                      user={users[comment.commentUser_id]}
-                    />
-                  ))}
-                </>
-              ) : (
-                <p>Carregando comentários...</p>
-              )}
+                    {comments ? (
+                        <>
+                            {comments.map((comment, index) => (
+                                <Comments key={index}
+                                    criado={comment.created_at}
+                                    comentario={comment.comment_descricao}
+                                    userIdValue={comment.commentUser_id}
+                                    user={users[comment.commentUser_id]}
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        <p>Carregando comentários...</p>
+                    )}
 
                 </div>
             </CommentsOpenedPost>

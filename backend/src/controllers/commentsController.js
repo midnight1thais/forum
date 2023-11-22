@@ -18,7 +18,7 @@ async function listComments(request, response) {
         response.status(200).json({
           success: true,
           message: 'Success in returning user informations.',
-          data: results[0] 
+          data: results
         });
       } else {
         response.status(400).json({
